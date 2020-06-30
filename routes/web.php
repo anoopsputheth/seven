@@ -57,4 +57,6 @@ Route::post('/createcompany', 'CompanyController@store')->name('createcompany');
 
 Route::get('/fetchcompany/{id}', 'CompanyController@fetch')->name('fetchcompany');
 
+Route::post('/editcompany', 'CompanyController@edit')->name('editcompany');
+
 

@@ -60,7 +60,7 @@
 
                       {{  Form::label('address') }}
 
-                      {{  Form::text('address', '' , array('id' => 'input_text_company_address', 'class' => 'form-control')) }}
+                      {{  Form::text('company_address', '' , array('id' => 'input_text_company_address', 'class' => 'form-control')) }}
 
                       <br />
 
@@ -101,6 +101,13 @@
                       {{  Form::label('city') }}
 
                       {{  Form::text('company_city', '' , array('id' => 'input_text_company_city', 'class' => 'form-control')) }}
+
+
+                      <br />
+
+                      {{  Form::label('state') }}
+
+                      {{  Form::text('company_state', '' , array('id' => 'input_text_company_state', 'class' => 'form-control')) }}
 
 
                      
@@ -161,9 +168,9 @@
                       
                       {{  Form::label('company_name') }} 
 
-                      {{  Form::text('company_name', '' , array('id' => 'input_text_company_name', 'class' => 'form-control')) }}
+                      {{  Form::text('company_name_edit', '' , array('id' => 'input_text_company_name_edit', 'class' => 'form-control')) }}
 
-                      <div id="errordiv_companyname"></div>
+                      <div id="errordiv_edit_companyname"></div>
                       
     
                       <br />
@@ -171,9 +178,9 @@
 
                       {{  Form::label('contact_person') }}
 
-                      {{  Form::text('contact_person', '' , array('id' => 'input_text_contact_person', 'class' => 'form-control')) }}
+                      {{  Form::text('contact_person_edit', '' , array('id' => 'input_text_contact_person_edit', 'class' => 'form-control')) }}
 
-                      <div id="errordiv_contactperson"></div>
+                      <div id="errordiv_edit_contactperson"></div>
 
 
                       <br />
@@ -181,7 +188,7 @@
 
                       {{  Form::label('address') }}
 
-                      {{  Form::text('address', '' , array('id' => 'input_text_company_address', 'class' => 'form-control')) }}
+                      {{  Form::text('address_edit', '' , array('id' => 'input_text_company_address_edit', 'class' => 'form-control')) }}
 
 
                       <br />
@@ -189,25 +196,25 @@
 
                       {{  Form::label('phone') }}
 
-                      {{  Form::text('company_phone', '' , array('id' => 'input_text_company__phone', 'class' => 'form-control')) }}
+                      {{  Form::text('company_phone_edit', '' , array('id' => 'input_text_company_phone_edit', 'class' => 'form-control')) }}
 
-                      <div id="errordiv_companyphone"></div>
+                      <div id="errordiv_edit_companyphone"></div>
 
                       <br />
 
 
                       {{  Form::label('fax') }}
 
-                      {{  Form::text('company_fax', '' , array('id' => 'input_text_company_fax', 'class' => 'form-control')) }}
+                      {{  Form::text('company_fax_edit', '' , array('id' => 'input_text_company_fax_edit', 'class' => 'form-control')) }}
 
                       <br />
 
 
                       {{  Form::label('email') }}
 
-                      {{  Form::text('company_email', '' , array('id' => 'input_text_company_email', 'class' => 'form-control')) }}
+                      {{  Form::text('company_email_edit', '' , array('id' => 'input_text_company_email_edit', 'class' => 'form-control')) }}
 
-                      <div id="errordiv_companyemail"></div>
+                      <div id="errordiv_edit_companyemail"></div>
 
 
                       <br />
@@ -215,28 +222,28 @@
 
                       {{  Form::label('zip') }}
 
-                      {{  Form::text('company_zip', '' , array('id' => 'input_text_company_zip', 'class' => 'form-control')) }}
+                      {{  Form::text('company_zip_edit', '' , array('id' => 'input_text_company_zip_edit', 'class' => 'form-control')) }}
                       
 
                       <br />
 
                       {{  Form::label('city') }}
 
-                      {{  Form::text('company_city', '' , array('id' => 'input_text_company_city', 'class' => 'form-control')) }}
+                      {{  Form::text('company_city_edit', '' , array('id' => 'input_text_company_city_edit', 'class' => 'form-control')) }}
 
 
                       <br />
 
                       {{  Form::label('state') }}
 
-                      {{  Form::text('company_state', '' , array('id' => 'input_text_company_state', 'class' => 'form-control')) }}
+                      {{  Form::text('company_state_edit', '' , array('id' => 'input_text_company_state_edit', 'class' => 'form-control')) }}
 
 
                       <br />
                    
                       {{  Form::label('description') }}
 
-                      {!! Form::textarea('company_description', '', array('id' => 'input_text_company_description', 'class' => 'form-control', 'rows' => 4, 'cols' => 54)) !!}
+                      {!! Form::textarea('company_description_edit', '', array('id' => 'input_text_company_description_edit', 'class' => 'form-control', 'rows' => 4, 'cols' => 54)) !!}
 
       
                       {{ Form::close() }}
@@ -248,9 +255,9 @@
                       
 
                     
-                      {{  Form::button('Close', ['id' => 'btn_close_modal_create_company', 'class' => 'btn btn-danger btn-sm']) }}
+                      {{  Form::button('Close', ['id' => 'btn_close_modal_edit_company', 'class' => 'btn btn-danger btn-sm']) }}
 
-                      {{  Form::button('Save', ['id' => 'btn_create_company', 'class' => 'btn btn-success btn-sm'])  }}
+                      {{  Form::button('Update', ['id' => 'btn_update_company', 'class' => 'btn btn-success btn-sm'])  }}
 
                     </div>
 
