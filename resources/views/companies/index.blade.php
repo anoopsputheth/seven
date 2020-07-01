@@ -129,7 +129,7 @@
                     
                       {{  Form::button('Close', ['id' => 'btn_close_modal_create_company', 'class' => 'btn btn-danger btn-sm']) }}
 
-                      {{  Form::button('Save', ['id' => 'btn_create_company', 'class' => 'btn btn-success btn-sm'])  }}
+                      {{  Form::button('Create', ['id' => 'btn_create_company', 'class' => 'btn btn-success btn-sm'])  }}
 
                     </div>
 
@@ -245,7 +245,9 @@
 
                       {!! Form::textarea('company_description_edit', '', array('id' => 'input_text_company_description_edit', 'class' => 'form-control', 'rows' => 4, 'cols' => 54)) !!}
 
-      
+                       
+                      {{ Form::hidden('company_id_edit', '', array('id' => 'input_hidden_company_id')) }}
+
                       {{ Form::close() }}
                       
                     </div>

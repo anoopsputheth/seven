@@ -20,7 +20,7 @@ class CompanyController extends Controller
     public function index()
     {
 
-        $companies =  Company::paginate(15);
+        $companies =  Company::orderBy('name', 'asc')->paginate(15);
 
         return view('companies.index', compact('companies'));
 
@@ -32,7 +32,7 @@ class CompanyController extends Controller
 
         if($request->ajax())
         {
-            $companies =  Company::paginate(15);
+            $companies =  Company::orderBy('name', 'asc')->paginate(15);
 
             return view('companies.paginated_data', compact('companies'));
 
@@ -90,7 +90,7 @@ class CompanyController extends Controller
 
         $validator = Validator::make($request->all(), [
 
-            'companyname' => 'required|unique:companies,name',
+            'companyname' => 'required|unique:companies,name,'.$request->id.'',
             'contactperson' => 'required',
             'companyphone' => 'required',
             'companyemail' => 'required|email'
