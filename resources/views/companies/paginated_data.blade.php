@@ -4,6 +4,20 @@
 
    <tr> <th>Company Name</th> <th>Contact Person</th> <th>Phone</th> <th>Email</th> <th>Action</th> </tr>
 
+   <tr> 
+   
+     <td>{{  Form::text('search_company_name', '' , array('id' => 'search_text_company_name', 'class' => 'form-control')) }}</td> 
+
+     <td>{{  Form::text('search_contact_person', '' , array('id' => 'search_text_contact_person', 'class' => 'form-control')) }}</td>
+
+     <td>{{  Form::text('search_phone', '' , array('id' => 'search_text_phone', 'class' => 'form-control')) }}</td> 
+
+     <td>{{  Form::text('search_email', '' , array('id' => 'search_text_email', 'class' => 'form-control')) }}</td> 
+
+     <td> &nbsp; </td> 
+
+   </tr>
+
     @foreach($companies as $company)
 
     <tr> 

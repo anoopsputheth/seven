@@ -64,6 +64,28 @@ $(document).ready(function(){
 
   });  // end on('show.bs.modal'
 
+
+
+  $("#search_text_company_name").on("keyup", function(e) {
+
+      $.ajax({
+
+        url : '/seven/public/companies/indexs',
+
+        data : { 
+
+          'search_company_name' : $('input[name=search_company_name]').val(),
+
+        }
+
+      }).done(function(data){
+
+          $('#table_paginated_data').html(data);
+      });
+      
+  });
+
+
    
 });  // end $(document).ready(
 

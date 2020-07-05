@@ -51,6 +51,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/companies', 'CompanyController@index')->name('company.index');
 
+Route::get('/companies/indexs', 'CompanyController@indexs')->name('company.indexs');
+
 Route::get('/companies/ajaxpagination', 'CompanyController@ajaxpagination')->name('company.ajaxpagination');
 
 Route::post('/createcompany', 'CompanyController@store')->name('createcompany');

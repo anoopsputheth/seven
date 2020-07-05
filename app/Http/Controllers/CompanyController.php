@@ -20,11 +20,39 @@ class CompanyController extends Controller
     public function index()
     {
 
-        $companies =  Company::orderBy('name', 'asc')->paginate(15);
+        $companies =  Company::orderBy('name', 'asc')->paginate(5);
 
         return view('companies.index', compact('companies'));
 
     }
+
+
+
+    public function indexs(Request $request)
+    {
+
+
+        $searchmap = array();
+        if(!empty($request->input('search_company_name')))
+        {
+          
+            $searchmap = array(
+                array('name',   'like', '%nikki%')
+            );
+
+        }
+        
+
+        $companies =  Company::where($searchmap)->orderBy('name', 'asc')->paginate(5);
+
+         return view('companies.paginated_data', compact('companies'));
+
+
+    }
+
+
+
+
 
 
     public function ajaxpagination(Request $request)
@@ -32,7 +60,10 @@ class CompanyController extends Controller
 
         if($request->ajax())
         {
-            $companies =  Company::orderBy('name', 'asc')->paginate(15);
+
+           
+
+            $companies =  Company::orderBy('name', 'asc')->paginate(5);
 
             return view('companies.paginated_data', compact('companies'));
 
