@@ -260,6 +260,12 @@ function fetchPaginatedCompanies(page)
 
       url : '/seven/public/companies/ajaxpagination?page='+page,
 
+      data : {
+
+        'search_company_name' : 'sample'
+
+      }
+
     }).done(function(data){
 
         $('#table_paginated_data').html(data);

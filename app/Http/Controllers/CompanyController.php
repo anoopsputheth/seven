@@ -61,9 +61,20 @@ class CompanyController extends Controller
         if($request->ajax())
         {
 
+            $searchmap = array();
+
+            if(!empty($request->input('search_company_name')))
+            {
+            
+                $searchmap = array(
+                    array('name',   'like', '%nikki%')
+                );
+
+            }
+
            
 
-            $companies =  Company::orderBy('name', 'asc')->paginate(5);
+            $companies =  Company::where($searchmap)->orderBy('name', 'asc')->paginate(5);
 
             return view('companies.paginated_data', compact('companies'));
 
