@@ -6,7 +6,7 @@
 
    <tr> 
    
-     <td>{{  Form::text('search_company_name', '' , array('id' => 'search_text_company_name', 'class' => 'form-control')) }}</td> 
+     <td>{{  Form::text('search_company_name', $search_company_name , array('id' => 'search_text_company_name', 'class' => 'form-control')) }}</td> 
 
      <td>{{  Form::text('search_contact_person', '' , array('id' => 'search_text_contact_person', 'class' => 'form-control')) }}</td>
 

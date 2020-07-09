@@ -66,7 +66,7 @@ $(document).ready(function(){
 
 
 
-  $("#search_text_company_name").on("keyup", function(e) {
+  $(document).on("keyup", "#search_text_company_name" ,function(e) {
 
       $.ajax({
 

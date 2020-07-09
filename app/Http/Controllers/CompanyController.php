@@ -22,7 +22,7 @@ class CompanyController extends Controller
 
         $companies =  Company::orderBy('name', 'asc')->paginate(5);
 
-        return view('companies.index', compact('companies'));
+        return view('companies.index', array('companies' =>  $companies, 'search_company_name' => ''));
 
     }
 
@@ -37,7 +37,7 @@ class CompanyController extends Controller
         {
           
             $searchmap = array(
-                array('name',   'like', '%nikki%')
+                array('name',   'like', '%'.$request->input('search_company_name').'%')
             );
 
         }
@@ -45,7 +45,7 @@ class CompanyController extends Controller
 
         $companies =  Company::where($searchmap)->orderBy('name', 'asc')->paginate(5);
 
-         return view('companies.paginated_data', compact('companies'));
+         return view('companies.paginated_data', array('companies' =>  $companies, 'search_company_name' => $request->input('search_company_name')));
 
 
     }
@@ -76,7 +76,7 @@ class CompanyController extends Controller
 
             $companies =  Company::where($searchmap)->orderBy('name', 'asc')->paginate(5);
 
-            return view('companies.paginated_data', compact('companies'));
+            return view('companies.paginated_data', array('companies' => $companies, 'search_company_name' => $request->input('search_company_name')));
 
         }
 
