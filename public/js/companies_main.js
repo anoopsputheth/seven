@@ -66,7 +66,7 @@ $(document).ready(function(){
 
 
 
-  $(document).on("keyup", "#search_text_company_name" ,function(e) {
+  $(document).on("keyup", "#search_text_company_name, #search_text_contact_person" ,function(e) {
 
       $.ajax({
 
@@ -75,12 +75,13 @@ $(document).ready(function(){
         data : { 
 
           'search_company_name' : $('input[name=search_company_name]').val(),
+          'search_contact_person' : $('input[name=search_contact_person]').val(),
 
         }
 
       }).done(function(data){
 
-          $('#table_paginated_data').html(data);
+          $('#tab_r tbody').html(data);
       });
       
   });
@@ -155,7 +156,7 @@ function saveCompany()
             
                 }).done(function(data){
             
-                    $('#table_paginated_data').html(data);
+                    $('#tab_r tbody').html(data);
                 });
 
             }
@@ -237,7 +238,8 @@ function updateCompany()
             
                 }).done(function(data){
             
-                    $('#table_paginated_data').html(data);
+                  $('#tab_r tbody').html(data);
+
                 });
 
             }
@@ -262,13 +264,15 @@ function fetchPaginatedCompanies(page)
 
       data : {
 
-        'search_company_name' : 'sample'
+        'search_company_name' : $('input[name=search_company_name]').val(),
+        'search_contact_person' : $('input[name=search_contact_person]').val(),
 
       }
 
     }).done(function(data){
 
-        $('#table_paginated_data').html(data);
+      $('#tab_r tbody').html(data);
+
     });
 
 }
