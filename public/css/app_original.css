@@ -10931,34 +10931,3 @@ a.text-dark:focus {
   }
 }
 
-
-
-/*   Added by Anoop  */
-
-
-.class_container_btn_create
-{
-  
-  float:right;
-  margin-right:4%;
-  
-}
-
-.class_box_search
-{
-
-  margin-left: 2%;
-}
-
-
-#search_text_phone
-{
-
-  margin-left: 6%;
-}
-
-#search_text_email
-{
-
-  margin-left: 8%;
-}

@@ -3,10 +3,13 @@
 
 @section('content')
 
+<div id="div_container_btn_create" class="class_container_btn_create">
 
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_create_company">
     Create Company
   </button>
+
+</div>
  
 
   <div class="table-responsive" id="table_paginated_data">  
@@ -25,11 +28,11 @@
     
       <td>{{  Form::text('search_company_name', $search_company_name , array('id' => 'search_text_company_name', 'class' => 'form-control')) }}</td> 
 
-      <td>{{  Form::text('search_contact_person', $search_contact_person , array('id' => 'search_text_contact_person', 'class' => 'form-control')) }}</td>
+      <td>{{  Form::text('search_contact_person', $search_contact_person , array('id' => 'search_text_contact_person', 'class' => array('form-control', 'class_box_search'))) }}</td>
 
-      <td>{{  Form::text('search_phone', '' , array('id' => 'search_text_phone', 'class' => 'form-control')) }}</td> 
+      <td>{{  Form::text('search_phone', '' , array('id' => 'search_text_phone', 'class' => array('form-control', 'class_box_search'))) }}</td> 
 
-      <td>{{  Form::text('search_email', '' , array('id' => 'search_text_email', 'class' => 'form-control')) }}</td> 
+      <td>{{  Form::text('search_email', '' , array('id' => 'search_text_email', 'class' => array('form-control', 'class_box_search'))) }}</td> 
 
       <td> &nbsp; </td> 
 
@@ -40,7 +43,7 @@
     
     <div>
 
-    <table id="tab_r" width="100%" class="table">
+    <table id="table_paginted_companies" width="100%" class="table">
 
     <tbody>
 

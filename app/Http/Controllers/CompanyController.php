@@ -28,37 +28,28 @@ class CompanyController extends Controller
 
 
 
-    public function indexs(Request $request)
+    public function indexsearch(Request $request)
     {
-
 
         $searchmap = array();
 
         if(!empty($request->input('search_company_name')))
-        {
-          
+        {   
             array_push($searchmap, array('name',   'like', '%'.$request->input('search_company_name').'%'));
-
         }
 
 
         if(!empty($request->input('search_contact_person')))
-        {
-          
+        {  
             array_push($searchmap, array('contact_person',   'like', '%'.$request->input('search_contact_person').'%'));
-
         }
         
 
         $companies =  Company::where($searchmap)->orderBy('name', 'asc')->paginate(5);
 
-         return view('companies.paginated_data', array('companies' =>  $companies, 'search_company_name' => $request->input('search_company_name'), 'search_contact_person' => $request->input('search_contact_person')));
-
+        return view('companies.paginated_data', array('companies' =>  $companies, 'search_company_name' => $request->input('search_company_name'), 'search_contact_person' => $request->input('search_contact_person')));
 
     }
-
-
-
 
 
 
@@ -71,23 +62,18 @@ class CompanyController extends Controller
             $searchmap = array();
 
             if(!empty($request->input('search_company_name')))
-            {
-                
+            {  
                 array_push($searchmap, array('name',   'like', '%'.$request->input('search_company_name').'%'));
-                
-                
+                   
             }
 
 
             if(!empty($request->input('search_contact_person')))
-            {
-                
+            {   
                 array_push($searchmap, array('contact_person',   'like', '%'.$request->input('search_contact_person').'%'));
                 
-    
             }
 
-           
 
             $companies =  Company::where($searchmap)->orderBy('name', 'asc')->paginate(5);
 
@@ -98,6 +84,7 @@ class CompanyController extends Controller
     }
 
 
+    
     public function store(Request $request)
     {
 

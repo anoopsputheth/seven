@@ -22,55 +22,65 @@ $(document).ready(function(){
 
     var company_id = $(e.relatedTarget).data('company_id');   
 
-    console.log(company_id);
+    //console.log(company_id);
 
     $.ajax({            
 
-          type : 'GET',            
-          url : '/seven/public/fetchcompany/{id}',    
-          data    : 'id='+ company_id, //Pass $user_id            
-          success : function(result) 
+          type : 'GET',         
+
+          url :  './companies/fetchcompany/{id}',
+
+          data    : 'id='+ company_id, //Pass $user_id           
+
+          success : function(data) 
+
           { 
-             console.log(result);
-            $('#input_text_company_name_edit').val(result.name);
+             
+            //console.log(result);
 
-            $('#input_text_contact_person_edit').val(result.contact_person);
+            $('#input_text_company_name_edit').val(data.name);
 
-            $('#input_text_company_address_edit').val(result.address);
+            $('#input_text_contact_person_edit').val(data.contact_person);
 
-            $('#input_text_company_phone_edit').val(result.phone);
+            $('#input_text_company_address_edit').val(data.address);
 
-            $('#input_text_company_fax_edit').val(result.fax);
+            $('#input_text_company_phone_edit').val(data.phone);
 
-            $('#input_text_company_email_edit').val(result.email);
+            $('#input_text_company_fax_edit').val(data.fax);
 
-            $('#input_text_company_zip_edit').val(result.zip);
+            $('#input_text_company_email_edit').val(data.email);
 
-            $('#input_text_company_city_edit').val(result.city);
+            $('#input_text_company_zip_edit').val(data.zip);
 
-            $('#input_text_company_state_edit').val(result.state);
+            $('#input_text_company_city_edit').val(data.city);
 
-            $('#input_text_company_description_edit').val(result.description);
+            $('#input_text_company_state_edit').val(data.state);
+
+            $('#input_text_company_description_edit').val(data.description);
 
             $('#input_hidden_company_id').val(company_id);
 
           },
-          error   : function(result) 
+
+          error   : function() 
+
           { 
-          alert('error'+result); 
+            
+            console.log('some error occured while fetching company'); 
+
           }
 
       }); 
 
   });  // end on('show.bs.modal'
 
+  
 
-
-  $(document).on("keyup", "#search_text_company_name, #search_text_contact_person" ,function(e) {
+  $(document).on('keyup', '[id^=search_text_]' ,function(e) {
 
       $.ajax({
 
-        url : '/seven/public/companies/indexs',
+        url : './companies/indexsearch',
 
         data : { 
 
@@ -81,10 +91,11 @@ $(document).ready(function(){
 
       }).done(function(data){
 
-          $('#tab_r tbody').html(data);
+          $('#table_paginted_companies tbody').html(data);
+
       });
       
-  });
+  });  // end on('keyup'
 
 
    
@@ -234,11 +245,11 @@ function updateCompany()
               
                 $.ajax({
 
-                  url : '/seven/public/companies/ajaxpagination?page=1',
+                  url : './companies/ajaxpagination?page=1',
             
                 }).done(function(data){
             
-                  $('#tab_r tbody').html(data);
+                  $('#table_paginted_companies tbody').html(data);
 
                 });
 
@@ -260,7 +271,7 @@ function fetchPaginatedCompanies(page)
 
     $.ajax({
 
-      url : '/seven/public/companies/ajaxpagination?page='+page,
+      url : './companies/ajaxpagination?page='+page,
 
       data : {
 
@@ -271,8 +282,8 @@ function fetchPaginatedCompanies(page)
 
     }).done(function(data){
 
-      $('#tab_r tbody').html(data);
+      $('#table_paginted_companies tbody').html(data);
 
     });
 
-}
+}   // end function fetchPaginatedCompanies()
