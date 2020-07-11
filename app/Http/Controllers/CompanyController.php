@@ -37,10 +37,7 @@ class CompanyController extends Controller
         if(!empty($request->input('search_company_name')))
         {
           
-            $searchmap = array(
-                array('name',   'like', '%'.$request->input('search_company_name').'%')
-                
-            );
+            array_push($searchmap, array('name',   'like', '%'.$request->input('search_company_name').'%'));
 
         }
 
@@ -48,10 +45,7 @@ class CompanyController extends Controller
         if(!empty($request->input('search_contact_person')))
         {
           
-            $searchmap = array(
-              
-                array('contact_person',   'like', '%'.$request->input('search_contact_person').'%')
-            );
+            array_push($searchmap, array('contact_person',   'like', '%'.$request->input('search_contact_person').'%'));
 
         }
         
@@ -78,22 +72,18 @@ class CompanyController extends Controller
 
             if(!empty($request->input('search_company_name')))
             {
-            
-                $searchmap = array(
-                    array('name',   'like', '%'.$request->input('search_company_name').'%'),
-                    
-                );
-
+                
+                array_push($searchmap, array('name',   'like', '%'.$request->input('search_company_name').'%'));
+                
+                
             }
 
 
             if(!empty($request->input('search_contact_person')))
             {
-              
-                $searchmap = array(
-                  
-                    array('contact_person',   'like', '%'.$request->input('search_contact_person').'%')
-                );
+                
+                array_push($searchmap, array('contact_person',   'like', '%'.$request->input('search_contact_person').'%'));
+                
     
             }
 
