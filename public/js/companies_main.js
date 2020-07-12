@@ -12,7 +12,7 @@ $(document).ready(function(){
   });
 
 
-  $(document).on('click', '#btn_create_company', function(){ saveCompany(); });  
+  $(document).on('click', '#btn_create_company', function(){ insertCompany(); });  
 
   $(document).on('click', '#btn_update_company', function(){ updateCompany(); });  
   
@@ -28,7 +28,7 @@ $(document).ready(function(){
 
           type : 'GET',         
 
-          url :  './companies/fetchcompany/{id}',
+          url :  './companies/fetch/{id}',
 
           data    : 'id='+ company_id, //Pass $user_id           
 
@@ -72,6 +72,7 @@ $(document).ready(function(){
 
       }); 
 
+
   });  // end on('show.bs.modal'
 
   
@@ -103,14 +104,14 @@ $(document).ready(function(){
 
 
 
-function saveCompany()
+function insertCompany()
 {
 
       $.ajax({
 
         type : 'POST',
 
-        url  : 'createcompany',
+        url  : './companies/create',
 
         data : {
 
@@ -151,7 +152,7 @@ function saveCompany()
 
                 if(data.errors[key])
                 {
-                  $('#errordiv_'+key).html(value[0]).addClass('text-danger');
+                  $('#company_create_error_div_'+key).html(value[0]).addClass('text-danger');
                 }  
                 
               });
@@ -163,11 +164,11 @@ function saveCompany()
               
                 $.ajax({
 
-                  url : '/seven/public/companies/ajaxpagination?page=1',
+                  url : './companies/ajaxpagination?page=1',
             
                 }).done(function(data){
             
-                    $('#tab_r tbody').html(data);
+                    $('#table_paginted_companies tbody').html(data);
                 });
 
             }
@@ -179,7 +180,7 @@ function saveCompany()
       });  // end $.ajax({
 
 
-}  // end function saveCompany()
+}  // end function insertCompany()
 
 
 
@@ -190,7 +191,7 @@ function updateCompany()
 
         type : 'POST',
 
-        url  : 'editcompany',
+        url  : './companies/update',
 
         data : {
 
@@ -224,7 +225,7 @@ function updateCompany()
         success : function(data){  console.log(data.errors);
 
 
-            $('[id^=errordiv_edit_]').html('');
+            $('[id^=company_update_error_div_]').html('');
 
             if(data.errors)
             {
@@ -233,7 +234,7 @@ function updateCompany()
 
                 if(data.errors[key])
                 {
-                  $('#errordiv_edit_'+key).html(value[0]).addClass('text-danger');
+                  $('#company_update_error_div_'+key).html(value[0]).addClass('text-danger');
                 }  
                 
               });
@@ -262,7 +263,7 @@ function updateCompany()
       });  // end $.ajax({
 
 
-}  // end function saveCompany()
+}  // end function updateCompany()
 
 
 

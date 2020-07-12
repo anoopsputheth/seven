@@ -86,7 +86,7 @@
 
                       {{  Form::text('company_name', '' , array('id' => 'input_text_company_name', 'class' => 'form-control')) }}
 
-                      <div id="errordiv_companyname"></div>
+                      <div id="company_create_error_div_companyname"></div>
                       
     
                       <br />
@@ -96,7 +96,7 @@
 
                       {{  Form::text('contact_person', '' , array('id' => 'input_text_contact_person', 'class' => 'form-control')) }}
 
-                      <div id="errordiv_contactperson"></div>
+                      <div id="company_create_error_div_contactperson"></div>
 
                       <br />
 
@@ -112,7 +112,7 @@
 
                       {{  Form::text('company_phone', '' , array('id' => 'input_text_company__phone', 'class' => 'form-control')) }}
 
-                      <div id="errordiv_companyphone"></div>
+                      <div id="company_create_error_div_companyphone"></div>
 
                       <br />
 
@@ -128,7 +128,7 @@
 
                       {{  Form::text('company_email', '' , array('id' => 'input_text_company_email', 'class' => 'form-control')) }}
 
-                      <div id="errordiv_companyemail"></div>
+                      <div id="company_create_error_div_companyemail"></div>
 
 
                       <br />
@@ -213,7 +213,7 @@
 
                       {{  Form::text('company_name_edit', '' , array('id' => 'input_text_company_name_edit', 'class' => 'form-control')) }}
 
-                      <div id="errordiv_edit_companyname"></div>
+                      <div id="company_update_error_div_companyname"></div>
                       
     
                       <br />
@@ -223,7 +223,7 @@
 
                       {{  Form::text('contact_person_edit', '' , array('id' => 'input_text_contact_person_edit', 'class' => 'form-control')) }}
 
-                      <div id="errordiv_edit_contactperson"></div>
+                      <div id="company_update_error_div_contactperson"></div>
 
 
                       <br />
@@ -241,7 +241,7 @@
 
                       {{  Form::text('company_phone_edit', '' , array('id' => 'input_text_company_phone_edit', 'class' => 'form-control')) }}
 
-                      <div id="errordiv_edit_companyphone"></div>
+                      <div id="company_update_error_div_companyphone"></div>
 
                       <br />
 
@@ -257,7 +257,7 @@
 
                       {{  Form::text('company_email_edit', '' , array('id' => 'input_text_company_email_edit', 'class' => 'form-control')) }}
 
-                      <div id="errordiv_edit_companyemail"></div>
+                      <div id="company_update_error_div_companyemail"></div>
 
 
                       <br />

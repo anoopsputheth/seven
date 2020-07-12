@@ -56,10 +56,10 @@ Route::get('/companies/indexsearch', 'CompanyController@indexsearch')->name('com
 
 Route::get('/companies/ajaxpagination', 'CompanyController@ajaxpagination')->name('company.ajaxpagination');
 
-Route::post('/createcompany', 'CompanyController@store')->name('createcompany');
+Route::post('/companies/create', 'CompanyController@insert')->name('company.create');
 
-Route::get('/companies/fetchcompany/{id}', 'CompanyController@fetch')->name('fetchcompany');
+Route::get('/companies/fetch/{id}', 'CompanyController@fetch')->name('company.fetch');
 
-Route::post('/editcompany', 'CompanyController@edit')->name('editcompany');
+Route::post('/companies/update', 'CompanyController@update')->name('company.update');
 
 

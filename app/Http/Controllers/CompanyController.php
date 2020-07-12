@@ -20,7 +20,7 @@ class CompanyController extends Controller
     public function index()
     {
 
-        $companies =  Company::orderBy('name', 'asc')->paginate(5);
+        $companies =  Company::orderBy('name', 'asc')->paginate(15);
 
         return view('companies.index', array('companies' =>  $companies, 'search_company_name' => '', 'search_contact_person' => ''));
 
@@ -45,7 +45,7 @@ class CompanyController extends Controller
         }
         
 
-        $companies =  Company::where($searchmap)->orderBy('name', 'asc')->paginate(5);
+        $companies =  Company::where($searchmap)->orderBy('name', 'asc')->paginate(15);
 
         return view('companies.paginated_data', array('companies' =>  $companies, 'search_company_name' => $request->input('search_company_name'), 'search_contact_person' => $request->input('search_contact_person')));
 
@@ -75,7 +75,7 @@ class CompanyController extends Controller
             }
 
 
-            $companies =  Company::where($searchmap)->orderBy('name', 'asc')->paginate(5);
+            $companies =  Company::where($searchmap)->orderBy('name', 'asc')->paginate(15);
 
             return view('companies.paginated_data', array('companies' => $companies, 'search_company_name' => $request->input('search_company_name'), 'search_contact_person' => $request->input('search_contact_person')));
 
@@ -85,7 +85,7 @@ class CompanyController extends Controller
 
 
     
-    public function store(Request $request)
+    public function insert(Request $request)
     {
 
         $validator = Validator::make($request->all(), [
@@ -125,11 +125,20 @@ class CompanyController extends Controller
 
         return response()->json($company);
 
-    }  // end function store()
+
+    }  // end function insert()
 
 
 
-    public function edit(Request $request)
+    public function fetch(Request $request)
+    {
+        $company =  Company::find($request->id);
+        return response()->json($company);
+    }
+
+
+
+    public function update(Request $request)
     {
 
         $validator = Validator::make($request->all(), [
@@ -172,13 +181,6 @@ class CompanyController extends Controller
         return response()->json($company);
 
     }  // end function edit()
-
-
-    public function fetch(Request $request)
-    {
-        $company =  Company::find($request->id);
-        return response()->json($company);
-    }
 
 
 }
