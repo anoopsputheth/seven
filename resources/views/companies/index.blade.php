@@ -58,9 +58,8 @@
 
   </div>
 
-
-
-
+         
+         
  
 
           <!-- Modal Div Start -->
@@ -185,7 +184,120 @@
 
 
 
+        <!-- Modal Div Start -->
+        <div class="modal fade" id="modal_view_company" tabindex="-1" role="dialog" aria-labelledby="modal_view_company_label" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
 
+
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modal_view_company_label">VIEW COMPANY</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+
+
+                    <div class="modal-body">
+
+                      {{ Form::open(array('id' => 'form_company_view')) }}
+
+                      
+                      {{  Form::label('company_name_view') }} 
+
+                      {{  Form::text('company_name_view', '' , array('id' => 'input_text_company_name_view', 'class' => 'form-control', 'disabled')) }}
+                      
+    
+                      <br />
+
+
+                      {{  Form::label('contact_person_view') }}
+
+                      {{  Form::text('contact_person_view', '' , array('id' => 'input_text_contact_person_view', 'class' => 'form-control', 'disabled')) }}
+
+
+                      <br />
+
+
+                      {{  Form::label('address_view') }}
+
+                      {{  Form::text('address_view', '' , array('id' => 'input_text_company_address_view', 'class' => 'form-control', 'disabled')) }}
+
+
+                      <br />
+
+
+                      {{  Form::label('phone_view') }}
+
+                      {{  Form::text('company_phone_view', '' , array('id' => 'input_text_company_phone_view', 'class' => 'form-control', 'disabled')) }}
+
+                      
+                      <br />
+
+
+                      {{  Form::label('fax_view') }}
+
+                      {{  Form::text('company_fax_view', '' , array('id' => 'input_text_company_fax_view', 'class' => 'form-control', 'disabled')) }}
+
+                      <br />
+
+
+                      {{  Form::label('email_view') }}
+
+                      {{  Form::text('company_email_view', '' , array('id' => 'input_text_company_email_view', 'class' => 'form-control', 'disabled')) }}
+
+
+                      <br />
+
+
+                      {{  Form::label('zip_view') }}
+
+                      {{  Form::text('company_zip_view', '' , array('id' => 'input_text_company_zip_view', 'class' => 'form-control', 'disabled')) }}
+                      
+
+                      <br />
+
+                      {{  Form::label('city_view') }}
+
+                      {{  Form::text('company_city_view', '' , array('id' => 'input_text_company_city_view', 'class' => 'form-control', 'disabled')) }}
+
+
+                      <br />
+
+                      {{  Form::label('state_view') }}
+
+                      {{  Form::text('company_state_view', '' , array('id' => 'input_text_company_state_view', 'class' => 'form-control', 'disabled')) }}
+
+
+                      <br />
+                   
+                      {{  Form::label('description_view') }}
+
+                      {!! Form::textarea('company_description_view', '', array('id' => 'input_text_company_description_view', 'class' => 'form-control', 'rows' => 4, 'cols' => 54, 'disabled')) !!}
+
+                      
+
+                      {{ Form::close() }}
+                      
+                    </div>
+
+
+                    <div class="modal-footer">
+                      
+
+                    
+                      {{  Form::button('Close', ['id' => 'btn_close_modal_view_company', 'class' => 'btn btn-danger btn-sm']) }}
+
+                     
+
+                    </div>
+
+
+              </div>
+            </div>
+          </div>
+
+        <!-- Modal Div End -->
 
 
 

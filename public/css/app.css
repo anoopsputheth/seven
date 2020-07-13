@@ -10962,3 +10962,8 @@ a.text-dark:focus {
 
   margin-left: 8%;
 }
+
+
+.form-control:disabled {
+  background-color: white;
+}

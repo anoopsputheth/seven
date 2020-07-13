@@ -15,6 +15,67 @@ $(document).ready(function(){
   $(document).on('click', '#btn_create_company', function(){ insertCompany(); });  
 
   $(document).on('click', '#btn_update_company', function(){ updateCompany(); });  
+
+
+
+  $('#modal_view_company').on('show.bs.modal', function (e) 
+  {        
+
+    var view_company_id = $(e.relatedTarget).data('view_company_id');   
+
+    //console.log(view_company_id);
+
+    $.ajax({            
+
+          type : 'GET',         
+
+          url :  './companies/fetch/{id}',
+
+          data    : 'id='+ view_company_id, //Pass $user_id           
+
+          success : function(data) 
+
+          { 
+             
+            //console.log(result);
+
+            $('#input_text_company_name_view').val(data.name);
+
+            $('#input_text_contact_person_view').val(data.contact_person);
+
+            $('#input_text_company_address_view').val(data.address);
+
+            $('#input_text_company_phone_view').val(data.phone);
+
+            $('#input_text_company_fax_view').val(data.fax);
+
+            $('#input_text_company_email_view').val(data.email);
+
+            $('#input_text_company_zip_view').val(data.zip);
+
+            $('#input_text_company_city_view').val(data.city);
+
+            $('#input_text_company_state_viewt').val(data.state);
+
+            $('#input_text_company_description_view').val(data.description);
+
+           
+
+          },
+
+          error   : function() 
+
+          { 
+            
+            console.log('some error occured while fetching company'); 
+
+          }
+
+      }); 
+
+
+  });  // end on('show.bs.modal'
+
   
   
   $('#modal_edit_company').on('show.bs.modal', function (e) 
