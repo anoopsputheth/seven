@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ClientTypeSeeder extends Seeder
+class ChargingMethodSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,40 +11,31 @@ class ClientTypeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('client_types')->insert(
+        
+        DB::table('charging_methods')->insert(
 
             [
-            'name' => 'Non Billable',
+            'name' => 'Hourly',
             'description' => NULL,
             'created_at' => date("Y-m-d H:i:s")
             
             ]
          );
 
-         DB::table('client_types')->insert(
+         DB::table('charging_methods')->insert(
 
             [
-            'name' => 'Billable',
+            'name' => 'Yearly',
             'description' => NULL,
             'created_at' => date("Y-m-d H:i:s")
             
             ]
          );
 
-         DB::table('client_types')->insert(
+         DB::table('charging_methods')->insert(
 
             [
-            'name' => 'Business',
-            'description' => NULL,
-            'created_at' => date("Y-m-d H:i:s") 
-            
-            ]
-         );
-
-         DB::table('client_types')->insert(
-
-            [
-            'name' => 'Personal',
+            'name' => 'Monthly',
             'description' => NULL,
             'created_at' => date("Y-m-d H:i:s")
             
