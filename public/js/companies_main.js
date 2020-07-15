@@ -18,6 +18,101 @@ $(document).ready(function(){
 
 
 
+  $('#modal_create_company').on('hidden.bs.modal', function () {  
+
+    $('[id^=company_create_error_div_]').html('');
+    $('#form_company_create').trigger("reset");
+
+  }); // end on('hidden.bs.modal'
+
+
+
+  $(document).on('click', '#btn_close_modal_create_company', function(){
+
+    $('#modal_create_company').modal('hide');
+
+  });
+
+
+  
+  $('#modal_edit_company').on('show.bs.modal', function (e) 
+  {        
+
+    var company_id_update_company = $(e.relatedTarget).data('update_company_id');   
+
+    //console.log(company_id_edit_company);
+
+    $.ajax({            
+
+          type : 'GET',         
+
+          url :  './companies/fetch/{id}',
+
+          data    : 'id='+ company_id_update_company, // pass company id        
+
+          success : function(data) 
+
+          { 
+             
+            //console.log(data);
+
+            $('#input_text_company_name_edit_company').val(data.name);
+
+            $('#input_text_contact_person_edit_company').val(data.contact_person);
+
+            $('#input_text_company_address_edit_company').val(data.address);
+
+            $('#input_text_company_phone_edit_company').val(data.phone);
+
+            $('#input_text_company_fax_edit_company').val(data.fax);
+
+            $('#input_text_company_email_edit_company').val(data.email);
+
+            $('#input_text_company_zip_edit_company').val(data.zip);
+
+            $('#input_text_company_city_edit_company').val(data.city);
+
+            $('#input_text_company_state_edit_company').val(data.state);
+
+            $('#input_text_company_description_edit_company').val(data.description);
+
+            $('#input_hidden_company_id_edit_company').val(company_id_update_company);
+
+          },
+
+          error   : function() 
+
+          { 
+            
+            console.log('some error occured while fetching company'); 
+
+          }
+
+      }); 
+
+
+  });  // end on('show.bs.modal'
+
+
+
+  $('#modal_edit_company').on('hidden.bs.modal', function () {  
+
+    $('[id^=company_update_error_div_]').html('');
+    $('#form_company_edit').trigger("reset");
+
+  }); // end on('hidden.bs.modal'
+
+
+
+  $(document).on('click', '#btn_close_modal_edit_company', function(){
+
+    $('#modal_edit_company').modal('hide');
+
+  });
+
+
+
+
   $('#modal_view_company').on('show.bs.modal', function (e) 
   {        
 
@@ -39,25 +134,25 @@ $(document).ready(function(){
              
             //console.log(result);
 
-            $('#input_text_company_name_view').val(data.name);
+            $('#input_text_company_name_view_company').val(data.name);
 
-            $('#input_text_contact_person_view').val(data.contact_person);
+            $('#input_text_contact_person_view_company').val(data.contact_person);
 
-            $('#input_text_company_address_view').val(data.address);
+            $('#input_text_company_address_view_company').val(data.address);
 
-            $('#input_text_company_phone_view').val(data.phone);
+            $('#input_text_company_phone_view_company').val(data.phone);
 
-            $('#input_text_company_fax_view').val(data.fax);
+            $('#input_text_company_fax_view_company').val(data.fax);
 
-            $('#input_text_company_email_view').val(data.email);
+            $('#input_text_company_email_view_company').val(data.email);
 
-            $('#input_text_company_zip_view').val(data.zip);
+            $('#input_text_company_zip_view_company').val(data.zip);
 
-            $('#input_text_company_city_view').val(data.city);
+            $('#input_text_company_city_view_company').val(data.city);
 
-            $('#input_text_company_state_viewt').val(data.state);
+            $('#input_text_company_state_view_company').val(data.state);
 
-            $('#input_text_company_description_view').val(data.description);
+            $('#input_text_company_description_view_company').val(data.description);
 
            
 
@@ -77,66 +172,7 @@ $(document).ready(function(){
   });  // end on('show.bs.modal'
 
   
-  
-  $('#modal_edit_company').on('show.bs.modal', function (e) 
-  {        
 
-    var company_id = $(e.relatedTarget).data('company_id');   
-
-    //console.log(company_id);
-
-    $.ajax({            
-
-          type : 'GET',         
-
-          url :  './companies/fetch/{id}',
-
-          data    : 'id='+ company_id, //Pass $user_id           
-
-          success : function(data) 
-
-          { 
-             
-            //console.log(result);
-
-            $('#input_text_company_name_edit').val(data.name);
-
-            $('#input_text_contact_person_edit').val(data.contact_person);
-
-            $('#input_text_company_address_edit').val(data.address);
-
-            $('#input_text_company_phone_edit').val(data.phone);
-
-            $('#input_text_company_fax_edit').val(data.fax);
-
-            $('#input_text_company_email_edit').val(data.email);
-
-            $('#input_text_company_zip_edit').val(data.zip);
-
-            $('#input_text_company_city_edit').val(data.city);
-
-            $('#input_text_company_state_edit').val(data.state);
-
-            $('#input_text_company_description_edit').val(data.description);
-
-            $('#input_hidden_company_id').val(company_id);
-
-          },
-
-          error   : function() 
-
-          { 
-            
-            console.log('some error occured while fetching company'); 
-
-          }
-
-      }); 
-
-
-  });  // end on('show.bs.modal'
-
-  
 
   $(document).on('keyup', '[id^=search_text_]' ,function(e) {
 
@@ -178,25 +214,25 @@ function insertCompany()
 
         '_token' : $('input[name=_token]').val(),
 
-        'companyname' : $('input[name=company_name]').val(),
+        'companyname' : $('input[name=company_name_create_company]').val(),
 
-        'contactperson' : $('input[name=contact_person]').val(),
+        'contactperson' : $('input[name=contact_person_create_company]').val(),
 
-        'companyaddress' : $('input[name=company_address]').val(),
+        'companyaddress' : $('input[name=company_address_create_company]').val(),
 
-        'companyphone' : $('input[name=company_phone]').val(),
+        'companyphone' : $('input[name=company_phone_create_company]').val(),
 
-        'companyfax' : $('input[name=company_fax]').val(),
+        'companyfax' : $('input[name=company_fax_create_company]').val(),
 
-        'companyemail' : $('input[name=company_email]').val(),
+        'companyemail' : $('input[name=company_email_create_company]').val(),
 
-        'companyzip' : $('input[name=company_zip]').val(),
+        'companyzip' : $('input[name=company_zip_create_company]').val(),
 
-        'companycity' : $('input[name=company_city]').val(),
+        'companycity' : $('input[name=company_city_create_company]').val(),
 
-        'companystate' : $('input[name=company_state]').val(),
+        'companystate' : $('input[name=company_state_create_company]').val(),
 
-        'companydescription' : $('textarea[name=company_description]').val(),
+        'companydescription' : $('textarea[name=company_description_create_company]').val(),
 
         },
 
@@ -258,32 +294,34 @@ function updateCompany()
 
         '_token' : $('input[name=_token]').val(),
 
-        'id' : $('#input_hidden_company_id').val(), 
+        'id' : $('#input_hidden_company_id_edit_company').val(), 
 
-        'companyname' : $('input[name=company_name_edit]').val(),
+        'companyname' : $('input[name=company_name_edit_company]').val(),
 
-        'contactperson' : $('input[name=contact_person_edit]').val(),
+        'contactperson' : $('input[name=contact_person_edit_company]').val(),
 
-        'companyaddress' : $('input[name=company_address_edit]').val(),
+        'companyaddress' : $('input[name=company_address_edit_company]').val(),
 
-        'companyphone' : $('input[name=company_phone_edit]').val(),
+        'companyphone' : $('input[name=company_phone_edit_company]').val(),
 
-        'companyfax' : $('input[name=company_fax_edit]').val(),
+        'companyfax' : $('input[name=company_fax_edit_company]').val(),
 
-        'companyemail' : $('input[name=company_email_edit]').val(),
+        'companyemail' : $('input[name=company_email_edit_company]').val(),
 
-        'companyzip' : $('input[name=company_zip_edit]').val(),
+        'companyzip' : $('input[name=company_zip_edit_company]').val(),
 
-        'companycity' : $('input[name=company_city_edit]').val(),
+        'companycity' : $('input[name=company_city_edit_company]').val(),
 
-        'companystate' : $('input[name=company_state_edit]').val(),
+        'companystate' : $('input[name=company_state_edit_company]').val(),
 
-        'companydescription' : $('textarea[name=company_description_edit]').val(),
+        'companydescription' : $('textarea[name=company_description_edit_company]').val(),
 
         },
 
 
-        success : function(data){  console.log(data.errors);
+        success : function(data){ 
+          
+            //console.log(data.errors);
 
 
             $('[id^=company_update_error_div_]').html('');
@@ -312,6 +350,8 @@ function updateCompany()
                 }).done(function(data){
             
                   $('#table_paginted_companies tbody').html(data);
+
+                  $('#modal_edit_company').modal('hide');
 
                 });
 

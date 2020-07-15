@@ -83,7 +83,7 @@
                       
                       {{  Form::label('company_name') }} 
 
-                      {{  Form::text('company_name', '' , array('id' => 'input_text_company_name', 'class' => 'form-control')) }}
+                      {{  Form::text('company_name_create_company', '' , array('id' => 'input_text_company_name_create_company', 'class' => 'form-control')) }}
 
                       <div id="company_create_error_div_companyname"></div>
                       
@@ -91,9 +91,9 @@
                       <br />
 
 
-                      {{  Form::label('contact_person') }}
+                      {{  Form::label('contact_person_create') }}
 
-                      {{  Form::text('contact_person', '' , array('id' => 'input_text_contact_person', 'class' => 'form-control')) }}
+                      {{  Form::text('contact_person_create_company', '' , array('id' => 'input_text_contact_person_create_company', 'class' => 'form-control')) }}
 
                       <div id="company_create_error_div_contactperson"></div>
 
@@ -102,14 +102,14 @@
 
                       {{  Form::label('address') }}
 
-                      {{  Form::text('company_address', '' , array('id' => 'input_text_company_address', 'class' => 'form-control')) }}
+                      {{  Form::text('company_address_create_company', '' , array('id' => 'input_text_company_address_create_company', 'class' => 'form-control')) }}
 
                       <br />
 
 
                       {{  Form::label('phone') }}
 
-                      {{  Form::text('company_phone', '' , array('id' => 'input_text_company__phone', 'class' => 'form-control')) }}
+                      {{  Form::text('company_phone_create_company', '' , array('id' => 'input_text_company_phone_create_company', 'class' => 'form-control')) }}
 
                       <div id="company_create_error_div_companyphone"></div>
 
@@ -118,14 +118,14 @@
 
                       {{  Form::label('fax') }}
 
-                      {{  Form::text('company_fax', '' , array('id' => 'input_text_company_fax', 'class' => 'form-control')) }}
+                      {{  Form::text('company_fax_create_company', '' , array('id' => 'input_text_company_fax_create_company', 'class' => 'form-control')) }}
 
                       <br />
 
 
                       {{  Form::label('email') }}
 
-                      {{  Form::text('company_email', '' , array('id' => 'input_text_company_email', 'class' => 'form-control')) }}
+                      {{  Form::text('company_email_create_company', '' , array('id' => 'input_text_company_email_create_company', 'class' => 'form-control')) }}
 
                       <div id="company_create_error_div_companyemail"></div>
 
@@ -135,21 +135,21 @@
 
                       {{  Form::label('zip') }}
 
-                      {{  Form::text('company_zip', '' , array('id' => 'input_text_company_zip', 'class' => 'form-control')) }}
+                      {{  Form::text('company_zip_create_company', '' , array('id' => 'input_text_company_zip_create_company', 'class' => 'form-control')) }}
                       
 
                       <br />
 
                       {{  Form::label('city') }}
 
-                      {{  Form::text('company_city', '' , array('id' => 'input_text_company_city', 'class' => 'form-control')) }}
+                      {{  Form::text('company_city_create_company', '' , array('id' => 'input_text_company_city_create_company', 'class' => 'form-control')) }}
 
 
                       <br />
 
                       {{  Form::label('state') }}
 
-                      {{  Form::text('company_state', '' , array('id' => 'input_text_company_state', 'class' => 'form-control')) }}
+                      {{  Form::text('company_state_create_company', '' , array('id' => 'input_text_company_state_create_company', 'class' => 'form-control')) }}
 
 
                      
@@ -157,7 +157,7 @@
                    
                       {{  Form::label('description') }}
 
-                      {!! Form::textarea('company_description', '', array('id' => 'input_text_company_description', 'class' => 'form-control', 'rows' => 4, 'cols' => 54)) !!}
+                      {!! Form::textarea('company_description_create_company', '', array('id' => 'input_text_company_description_create_company', 'class' => 'form-control', 'rows' => 4, 'cols' => 54)) !!}
 
       
                       {{ Form::close() }}
@@ -203,77 +203,77 @@
                       {{ Form::open(array('id' => 'form_company_view')) }}
 
                       
-                      {{  Form::label('company_name_view') }} 
+                      {{  Form::label('company_name') }} 
 
-                      {{  Form::text('company_name_view', '' , array('id' => 'input_text_company_name_view', 'class' => 'form-control', 'disabled')) }}
+                      {{  Form::text('company_name_view_company', '' , array('id' => 'input_text_company_name_view_company', 'class' => 'form-control', 'disabled')) }}
                       
     
                       <br />
 
 
-                      {{  Form::label('contact_person_view') }}
+                      {{  Form::label('contact') }}
 
-                      {{  Form::text('contact_person_view', '' , array('id' => 'input_text_contact_person_view', 'class' => 'form-control', 'disabled')) }}
-
-
-                      <br />
-
-
-                      {{  Form::label('address_view') }}
-
-                      {{  Form::text('address_view', '' , array('id' => 'input_text_company_address_view', 'class' => 'form-control', 'disabled')) }}
+                      {{  Form::text('contact_person_view_company', '' , array('id' => 'input_text_contact_person_view_company', 'class' => 'form-control', 'disabled')) }}
 
 
                       <br />
 
 
-                      {{  Form::label('phone_view') }}
+                      {{  Form::label('address') }}
 
-                      {{  Form::text('company_phone_view', '' , array('id' => 'input_text_company_phone_view', 'class' => 'form-control', 'disabled')) }}
+                      {{  Form::text('address_view_company', '' , array('id' => 'input_text_company_address_view_company', 'class' => 'form-control', 'disabled')) }}
+
+
+                      <br />
+
+
+                      {{  Form::label('phone') }}
+
+                      {{  Form::text('company_phone_view_company', '' , array('id' => 'input_text_company_phone_view_company', 'class' => 'form-control', 'disabled')) }}
 
                       
                       <br />
 
 
-                      {{  Form::label('fax_view') }}
+                      {{  Form::label('fax') }}
 
-                      {{  Form::text('company_fax_view', '' , array('id' => 'input_text_company_fax_view', 'class' => 'form-control', 'disabled')) }}
-
-                      <br />
-
-
-                      {{  Form::label('email_view') }}
-
-                      {{  Form::text('company_email_view', '' , array('id' => 'input_text_company_email_view', 'class' => 'form-control', 'disabled')) }}
-
+                      {{  Form::text('company_fax_view_company', '' , array('id' => 'input_text_company_fax_view_company', 'class' => 'form-control', 'disabled')) }}
 
                       <br />
 
 
-                      {{  Form::label('zip_view') }}
+                      {{  Form::label('email') }}
 
-                      {{  Form::text('company_zip_view', '' , array('id' => 'input_text_company_zip_view', 'class' => 'form-control', 'disabled')) }}
+                      {{  Form::text('company_email_view_company', '' , array('id' => 'input_text_company_email_view_company', 'class' => 'form-control', 'disabled')) }}
+
+
+                      <br />
+
+
+                      {{  Form::label('zip') }}
+
+                      {{  Form::text('company_zip_view_company', '' , array('id' => 'input_text_company_zip_view_company', 'class' => 'form-control', 'disabled')) }}
                       
 
                       <br />
 
-                      {{  Form::label('city_view') }}
+                      {{  Form::label('city') }}
 
-                      {{  Form::text('company_city_view', '' , array('id' => 'input_text_company_city_view', 'class' => 'form-control', 'disabled')) }}
+                      {{  Form::text('company_city_view_company', '' , array('id' => 'input_text_company_city_view_company', 'class' => 'form-control', 'disabled')) }}
 
 
                       <br />
 
-                      {{  Form::label('state_view') }}
+                      {{  Form::label('state') }}
 
-                      {{  Form::text('company_state_view', '' , array('id' => 'input_text_company_state_view', 'class' => 'form-control', 'disabled')) }}
+                      {{  Form::text('company_state_view_company', '' , array('id' => 'input_text_company_state_view_company', 'class' => 'form-control', 'disabled')) }}
 
 
                       <br />
                    
-                      {{  Form::label('description_view') }}
+                      {{  Form::label('description') }}
 
-                      {!! Form::textarea('company_description_view', '', array('id' => 'input_text_company_description_view', 'class' => 'form-control', 'rows' => 4, 'cols' => 54, 'disabled')) !!}
+                      {!! Form::textarea('company_description_view_company', '', array('id' => 'input_text_company_description_view_company', 'class' => 'form-control', 'rows' => 4, 'cols' => 54, 'disabled')) !!}
 
                       
 
@@ -323,7 +323,7 @@
                       
                       {{  Form::label('company_name') }} 
 
-                      {{  Form::text('company_name_edit', '' , array('id' => 'input_text_company_name_edit', 'class' => 'form-control')) }}
+                      {{  Form::text('company_name_edit_company', '' , array('id' => 'input_text_company_name_edit_company', 'class' => 'form-control')) }}
 
                       <div id="company_update_error_div_companyname"></div>
                       
@@ -333,7 +333,7 @@
 
                       {{  Form::label('contact_person') }}
 
-                      {{  Form::text('contact_person_edit', '' , array('id' => 'input_text_contact_person_edit', 'class' => 'form-control')) }}
+                      {{  Form::text('contact_person_edit_company', '' , array('id' => 'input_text_contact_person_edit_company', 'class' => 'form-control')) }}
 
                       <div id="company_update_error_div_contactperson"></div>
 
@@ -343,7 +343,7 @@
 
                       {{  Form::label('address') }}
 
-                      {{  Form::text('address_edit', '' , array('id' => 'input_text_company_address_edit', 'class' => 'form-control')) }}
+                      {{  Form::text('address_edit_company', '' , array('id' => 'input_text_company_address_edit_company', 'class' => 'form-control')) }}
 
 
                       <br />
@@ -351,7 +351,7 @@
 
                       {{  Form::label('phone') }}
 
-                      {{  Form::text('company_phone_edit', '' , array('id' => 'input_text_company_phone_edit', 'class' => 'form-control')) }}
+                      {{  Form::text('company_phone_edit_company', '' , array('id' => 'input_text_company_phone_edit_company', 'class' => 'form-control')) }}
 
                       <div id="company_update_error_div_companyphone"></div>
 
@@ -360,14 +360,14 @@
 
                       {{  Form::label('fax') }}
 
-                      {{  Form::text('company_fax_edit', '' , array('id' => 'input_text_company_fax_edit', 'class' => 'form-control')) }}
+                      {{  Form::text('company_fax_edit_company', '' , array('id' => 'input_text_company_fax_edit_company', 'class' => 'form-control')) }}
 
                       <br />
 
 
                       {{  Form::label('email') }}
 
-                      {{  Form::text('company_email_edit', '' , array('id' => 'input_text_company_email_edit', 'class' => 'form-control')) }}
+                      {{  Form::text('company_email_edit_company', '' , array('id' => 'input_text_company_email_edit_company', 'class' => 'form-control')) }}
 
                       <div id="company_update_error_div_companyemail"></div>
 
@@ -377,31 +377,31 @@
 
                       {{  Form::label('zip') }}
 
-                      {{  Form::text('company_zip_edit', '' , array('id' => 'input_text_company_zip_edit', 'class' => 'form-control')) }}
+                      {{  Form::text('company_zip_edit_company', '' , array('id' => 'input_text_company_zip_edit_company', 'class' => 'form-control')) }}
                       
 
                       <br />
 
                       {{  Form::label('city') }}
 
-                      {{  Form::text('company_city_edit', '' , array('id' => 'input_text_company_city_edit', 'class' => 'form-control')) }}
+                      {{  Form::text('company_city_edit_company', '' , array('id' => 'input_text_company_city_edit_company', 'class' => 'form-control')) }}
 
 
                       <br />
 
                       {{  Form::label('state') }}
 
-                      {{  Form::text('company_state_edit', '' , array('id' => 'input_text_company_state_edit', 'class' => 'form-control')) }}
+                      {{  Form::text('company_state_edit_company', '' , array('id' => 'input_text_company_state_edit_company', 'class' => 'form-control')) }}
 
 
                       <br />
                    
                       {{  Form::label('description') }}
 
-                      {!! Form::textarea('company_description_edit', '', array('id' => 'input_text_company_description_edit', 'class' => 'form-control', 'rows' => 4, 'cols' => 54)) !!}
+                      {!! Form::textarea('company_description_edit_company', '', array('id' => 'input_text_company_description_edit_company', 'class' => 'form-control', 'rows' => 4, 'cols' => 54)) !!}
 
                        
-                      {{ Form::hidden('company_id_edit', '', array('id' => 'input_hidden_company_id')) }}
+                      {{ Form::hidden('company_id_edit_company', '', array('id' => 'input_hidden_company_id_edit_company')) }}
 
                       {{ Form::close() }}
                       

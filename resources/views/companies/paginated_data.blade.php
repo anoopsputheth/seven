@@ -16,7 +16,7 @@
 
          <a href="#modal_view_company" data-toggle="modal" data-view_company_id="<?= $company->id; ?>"><button class="btn btn-info btn-sm">View</button></a> 
 
-         <a href="#modal_edit_company" data-toggle="modal" data-company_id="<?= $company->id; ?>"><button class="btn btn-warning btn-sm">Edit</button></a>
+         <a href="#modal_edit_company" data-toggle="modal" data-update_company_id="<?= $company->id; ?>"><button class="btn btn-warning btn-sm">Edit</button></a>
          
          
          </td>
