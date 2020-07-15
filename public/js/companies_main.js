@@ -171,6 +171,14 @@ $(document).ready(function(){
 
   });  // end on('show.bs.modal'
 
+
+
+  $(document).on('click', '#btn_close_modal_view_company', function(){
+
+    $('#modal_view_company').modal('hide');
+
+  });
+
   
 
 

@@ -4,15 +4,15 @@
 
     <tr> 
     
-         <td width="25%"> {{ $company->name }} </td>
+         <td width="20%"> {{ $company->name }} </td>
 
-         <td width="25%"> {{ $company->contact_person }} </td>
+         <td width="20%"> {{ $company->contact_person }} </td>
 
-         <td width="25%"> {{ $company->phone }} </td>
+         <td width="20%"> {{ $company->phone }} </td>
 
-         <td width="25%"> {{ $company->email }} </td>
+         <td width="20%"> {{ $company->email }} </td>
 
-         <td width="25%"> 
+         <td width="20%"> 
 
          <a href="#modal_view_company" data-toggle="modal" data-view_company_id="<?= $company->id; ?>"><button class="btn btn-info btn-sm">View</button></a> 
 
