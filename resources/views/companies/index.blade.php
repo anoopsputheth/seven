@@ -20,30 +20,32 @@
 
   <div>
 
-  <table width="100%" class="table">
+  <table width="100%" class="table" border="0">
 
-    <tr> <th>Company Name</th> <th>Contact Person</th> <th>Phone</th> <th>Email</th> <th>Action</th> </tr>
+    <thead> <tr> <th>Company Name</th> <th>Contact Person</th> <th>Phone</th> <th>Email</th> <th>Action</th> </tr> </thead>
 
     <tbody><tr> 
     
-      <td>{{  Form::text('search_company_name', $search_company_name , array('id' => 'search_text_company_name', 'class' => 'form-control')) }}</td> 
+      <td width="22%">{{  Form::text('search_company_name', $search_company_name , array('id' => 'search_text_company_name', 'class' => 'form-control')) }}</td> 
 
-      <td>{{  Form::text('search_contact_person', $search_contact_person , array('id' => 'search_text_contact_person', 'class' => array('form-control', 'class_box_search'))) }}</td>
+      <td width="22%">{{  Form::text('search_contact_person', $search_contact_person , array('id' => 'search_text_contact_person', 'class' => array('form-control', 'class_box_search'))) }}</td>
 
-      <td>{{  Form::text('search_phone', '' , array('id' => 'search_text_phone', 'class' => array('form-control', 'class_box_search'))) }}</td> 
+      <td width="22%">{{  Form::text('search_phone', '' , array('id' => 'search_text_phone', 'class' => array('form-control', 'class_box_search'))) }}</td> 
 
-      <td>{{  Form::text('search_email', '' , array('id' => 'search_text_email', 'class' => array('form-control', 'class_box_search'))) }}</td> 
+      <td width="22%">{{  Form::text('search_email', '' , array('id' => 'search_text_email', 'class' => array('form-control', 'class_box_search'))) }}</td> 
 
-      <td> &nbsp; </td> 
+      <td  width="14%"> &nbsp; </td> 
 
     </tr></tbody>
 
     </table>
 
+   </div>
+
     
     <div>
 
-    <table id="table_paginted_companies" width="100%" class="table">
+    <table id="table_paginted_companies" width="100%" class="table"  border="0">
 
     <tbody>
 
@@ -53,8 +55,9 @@
 
     </table>
 
-
     </div>
+
+
 
   </div>
 
