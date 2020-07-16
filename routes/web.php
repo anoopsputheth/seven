@@ -63,3 +63,4 @@ Route::get('/companies/fetch/{id}', 'CompanyController@fetch')->name('company.fe
 Route::post('/companies/update', 'CompanyController@update')->name('company.update');
 
 
+Route::get('/clients', 'ClientController@index')->name('client.index');
