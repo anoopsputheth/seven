@@ -22,7 +22,7 @@ class ClientController extends Controller
 
         $clients =  Client::orderBy('lastname', 'asc')->paginate(15);
 
-        return view('clients.index', array('clients' =>  $clients, 'search_firstname' => '', 'search_lastname' => ''));
+        return view('clients.index', array('clients' =>  $clients, 'search_client_name' => '', 'search_client_zip' => '', 'search_client_city' => '', 'search_client_state' => '', 'search_client_phone' => '', 'search_client_email' => ''));
 
     }
 

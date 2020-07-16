@@ -1,1 +1,613 @@
-hi client ...
+@extends('layouts.app')
+
+
+@section('content')
+
+<div id="div_container_btn_create" class="class_container_btn_create">
+
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_create_client">
+    Create Client
+  </button>
+
+</div>
+ 
+
+  <div class="table-responsive" id="table_paginated_data">  
+
+  
+  <h1 > Clients </h1>
+
+
+  <div>
+
+  <table width="100%" class="table" border="0">
+
+    <thead> <tr> <th>Client Name</th> <th>Zip</th> <th>City</th> <th>State</th> <th>Phone</th> <th>Email</th> <th>Action</th> </tr> </thead>
+
+    <tbody><tr> 
+    
+      <td width="20%">{{  Form::text('search_client_name', $search_client_name , array('id' => 'search_text_client_name', 'class' => 'form-control')) }}</td> 
+
+      <td width="10%">{{  Form::text('search_client_zip', $search_client_zip , array('id' => 'search_text_client_zip', 'class' => array('form-control', 'class_box_search'))) }}</td>
+
+      <td width="10%">{{  Form::text('search_client_city', $search_client_city , array('id' => 'search_text_client_city', 'class' => array('form-control', 'class_box_search'))) }}</td>
+
+      <td width="10%">{{  Form::text('search_client_state', $search_client_state , array('id' => 'search_text_client_state', 'class' => array('form-control', 'class_box_search'))) }}</td>
+
+      <td width="15%">{{  Form::text('search_client_phone', $search_client_phone , array('id' => 'search_text_client_phone', 'class' => array('form-control', 'class_box_search'))) }}</td> 
+
+      <td width="20%">{{  Form::text('search_client_email', $search_client_email , array('id' => 'search_text_client_email', 'class' => array('form-control', 'class_box_search'))) }}</td> 
+
+      <td  width="15%"> &nbsp; </td> 
+
+    </tr></tbody>
+
+    </table>
+
+   </div>
+
+    
+    <div>
+
+    <table id="table_paginted_clients" width="100%" class="table"  border="0">
+
+    <tbody>
+
+    @include('clients.paginated_data')
+
+    </tbody>
+
+    </table>
+
+    </div>
+
+
+
+  </div>
+
+         
+         
+ 
+
+          <!-- Modal Div Start -->
+          <div class="modal fade" id="modal_create_client" tabindex="-1" role="dialog" aria-labelledby="modal_create_client_label" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+
+
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modal_create_company_label">CREATE CLIENT</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+
+
+                    <div class="modal-body">
+
+                      {{ Form::open(array('id' => 'form_client_create')) }}
+
+                      
+                      {{  Form::label('first_name') }} 
+
+                      {{  Form::text('client_first_name_create_client', '' , array('id' => 'input_text_client_first_name_create_client', 'class' => 'form-control')) }}
+
+                      
+                      <br />
+
+
+                      {{  Form::label('last_name') }}
+
+                      {{  Form::text('client_last_name_create_client', '' , array('id' => 'input_text_client_last_name_create_client', 'class' => 'form-control')) }}
+
+
+                      <br />
+
+
+                      {{  Form::label('business_name') }}
+
+                      {{  Form::text('client_businessname_create_client', '' , array('id' => 'input_text_client_businessname_create_client', 'class' => 'form-control')) }}
+
+
+                      <br />
+
+
+                      {{  Form::label('client_type') }}
+
+                      {{  Form::select('client_type_id', App\ClientType::pluck('name','id'), '3', ['class' => 'form-control']) }}
+
+
+                      <br />
+
+
+                      {{  Form::label('company') }}
+
+                      {{  Form::select('company_id', App\Company::pluck('name','id'), '3', ['class' => 'form-control']) }}
+
+
+                      <br />
+
+
+                      {{  Form::label('address') }}
+
+                      {{  Form::text('address', '' , array('id' => 'input_text_company_address_create_company', 'class' => 'form-control')) }}
+
+                      <br />
+
+
+                      {{  Form::label('zip') }}
+
+                      {{  Form::text('company_zip_create_company', '' , array('id' => 'input_text_company_zip_create_company', 'class' => 'form-control')) }}
+                      
+
+                      <br />
+
+                      {{  Form::label('city') }}
+
+                      {{  Form::text('company_city_create_company', '' , array('id' => 'input_text_company_city_create_company', 'class' => 'form-control')) }}
+
+
+                      <br />
+
+                      {{  Form::label('state') }}
+
+                      {{  Form::text('company_state_create_company', '' , array('id' => 'input_text_company_state_create_company', 'class' => 'form-control')) }}
+
+                  
+                      <br />
+
+
+                      {{  Form::label('contact_person_1') }}
+
+                      {{  Form::text('company_zip_create_company', '' , array('id' => 'input_text_company_zip_create_company', 'class' => 'form-control')) }}
+
+
+                       <br />
+
+                       {{  Form::label('contact_person_2') }}
+
+                       {{  Form::text('company_city_create_company', '' , array('id' => 'input_text_company_city_create_company', 'class' => 'form-control')) }}
+
+
+                       <br />
+
+                       {{  Form::label('contact_person_3') }}
+
+                       {{  Form::text('company_state_create_company', '' , array('id' => 'input_text_company_state_create_company', 'class' => 'form-control')) }}
+                     
+
+                       <br />
+
+                   
+
+                      {{  Form::label('contact_person_1_role') }}
+
+                      {{  Form::text('company_zip_create_company', '' , array('id' => 'input_text_company_zip_create_company', 'class' => 'form-control')) }}
+
+
+                       <br />
+
+                       {{  Form::label('contact_person_2_role') }}
+
+                       {{  Form::text('company_city_create_company', '' , array('id' => 'input_text_company_city_create_company', 'class' => 'form-control')) }}
+
+
+                       <br />
+
+                       {{  Form::label('contact_person_3_role') }}
+
+                       {{  Form::text('company_state_create_company', '' , array('id' => 'input_text_company_state_create_company', 'class' => 'form-control')) }}
+
+
+                      <br />
+
+
+                      {{  Form::label('phone_1') }}
+
+                      {{  Form::text('company_phone_create_company', '' , array('id' => 'input_text_company_phone_create_company', 'class' => 'form-control')) }}
+
+                      
+                      <br />
+
+
+                      {{  Form::label('phone_2') }}
+
+                      {{  Form::text('company_phone_create_company', '' , array('id' => 'input_text_company_phone_create_company', 'class' => 'form-control')) }}
+
+
+                      <br />
+
+
+                      {{  Form::label('cell_no') }}
+
+                      {{  Form::text('company_phone_create_company', '' , array('id' => 'input_text_company_phone_create_company', 'class' => 'form-control')) }}
+
+
+                      <br />
+
+
+                      {{  Form::label('fax') }}
+
+                      {{  Form::text('company_phone_create_company', '' , array('id' => 'input_text_company_phone_create_company', 'class' => 'form-control')) }}
+
+
+                      <br />
+
+
+                      {{  Form::label('email_1') }}
+
+                      {{  Form::text('company_email_create_company', '' , array('id' => 'input_text_company_email_create_company', 'class' => 'form-control')) }}
+
+                      <div id="company_create_error_div_companyemail"></div>
+
+
+                      <br />
+
+
+                      {{  Form::label('email_2') }}
+
+                      {{  Form::text('company_email_create_company', '' , array('id' => 'input_text_company_email_create_company', 'class' => 'form-control')) }}
+
+
+                      <br />
+
+
+                      {{  Form::label('email_3') }}
+
+                      {{  Form::text('company_email_create_company', '' , array('id' => 'input_text_company_email_create_company', 'class' => 'form-control')) }}
+                     
+
+                      <br />
+
+
+                      {{  Form::label('client_referral') }}
+
+                      {!! Form::text('company_description_create_company', '', array('id' => 'input_text_company_description_create_company', 'class' => 'form-control', 'rows' => 4, 'cols' => 54)) !!}
+
+
+                      <br />
+
+
+                      {{  Form::label('office_working_day_start') }}
+
+                      {!! Form::select('office_working_day_start', array('monday' => 'Monday', 'tuesday' => 'Tuesday', 'wednesday' => 'Wednesday', 'thursday' => 'Thursday', 'friday' => 'Friday'), 'monday', ['class' => 'form-control']) !!}
+
+                      
+
+                      <br />
+
+
+
+                     {{  Form::label('office_working_day_end') }}
+
+                     {!! Form::select('office_working_day_end', array('monday' => 'Monday', 'tuesday' => 'Tuesday', 'wednesday' => 'Wednesday', 'thursday' => 'Thursday', 'friday' => 'Friday'), 'friday', ['class' => 'form-control']) !!}
+
+
+                     <br />
+
+
+                     {{  Form::label('office_working_hour_start') }}
+
+                     {!! Form::select('office_working_hour_start', array('08:00 am' => '08:00 AM', '08:30 am' => '08:30 AM'), '08:30 am', ['class' => 'form-control']) !!}
+
+
+                    <br />
+
+
+                    {{  Form::label('office_working_hour_end') }}
+
+                    {!! Form::select('office_working_hour_end', array('08:00 am' => '08:00 AM', '08:30 am' => '08:30 AM'), '08:30 am', ['class' => 'form-control']) !!}
+                    
+
+                    <br />
+
+
+                    {{  Form::label('charging_method') }}
+
+                    {{  Form::select('charging_method_id', App\ChargingMethod::pluck('name','id'), '3', ['class' => 'form-control']) }}
+
+
+                    <br />
+
+
+                    {{  Form::label('charging_rate') }}
+
+                    {!! Form::text('company_description_create_company', '', array('id' => 'input_text_company_description_create_company', 'class' => 'form-control', 'rows' => 4, 'cols' => 54)) !!}
+
+
+                    <br />
+
+
+                    {{  Form::label('business_category') }}
+
+                    {{  Form::select('business_category_id', App\BusinessCategory::pluck('name','id'), '3', ['class' => 'form-control']) }}
+
+
+                    <br />
+
+
+
+                    {{  Form::label('network_structure') }}
+
+                    {!! Form::text('company_description_create_company', '', array('id' => 'input_text_company_description_create_company', 'class' => 'form-control', 'rows' => 4, 'cols' => 54)) !!}
+
+
+                    {{ Form::close() }}
+                      
+                    </div>
+
+
+                    <div class="modal-footer">
+                      
+
+                    
+                      {{  Form::button('Close', ['id' => 'btn_close_modal_create_company', 'class' => 'btn btn-danger btn-sm']) }}
+
+                      {{  Form::button('Create', ['id' => 'btn_create_company', 'class' => 'btn btn-success btn-sm'])  }}
+
+                    </div>
+
+
+              </div>
+            </div>
+          </div>
+
+        <!-- Modal Div End -->
+
+
+
+        <!-- Modal Div Start -->
+        <div class="modal fade" id="modal_view_company" tabindex="-1" role="dialog" aria-labelledby="modal_view_company_label" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+
+
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modal_view_company_label">VIEW COMPANY</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+
+
+                    <div class="modal-body">
+
+                      {{ Form::open(array('id' => 'form_company_view')) }}
+
+                      
+                      {{  Form::label('company_name') }} 
+
+                      {{  Form::text('company_name_view_company', '' , array('id' => 'input_text_company_name_view_company', 'class' => 'form-control', 'disabled')) }}
+                      
+    
+                      <br />
+
+
+                      {{  Form::label('contact') }}
+
+                      {{  Form::text('contact_person_view_company', '' , array('id' => 'input_text_contact_person_view_company', 'class' => 'form-control', 'disabled')) }}
+
+
+                      <br />
+
+
+                      {{  Form::label('address') }}
+
+                      {{  Form::text('address_view_company', '' , array('id' => 'input_text_company_address_view_company', 'class' => 'form-control', 'disabled')) }}
+
+
+                      <br />
+
+
+                      {{  Form::label('phone') }}
+
+                      {{  Form::text('company_phone_view_company', '' , array('id' => 'input_text_company_phone_view_company', 'class' => 'form-control', 'disabled')) }}
+
+                      
+                      <br />
+
+
+                      {{  Form::label('fax') }}
+
+                      {{  Form::text('company_fax_view_company', '' , array('id' => 'input_text_company_fax_view_company', 'class' => 'form-control', 'disabled')) }}
+
+                      <br />
+
+
+                      {{  Form::label('email') }}
+
+                      {{  Form::text('company_email_view_company', '' , array('id' => 'input_text_company_email_view_company', 'class' => 'form-control', 'disabled')) }}
+
+
+                      <br />
+
+
+                      {{  Form::label('zip') }}
+
+                      {{  Form::text('company_zip_view_company', '' , array('id' => 'input_text_company_zip_view_company', 'class' => 'form-control', 'disabled')) }}
+                      
+
+                      <br />
+
+                      {{  Form::label('city') }}
+
+                      {{  Form::text('company_city_view_company', '' , array('id' => 'input_text_company_city_view_company', 'class' => 'form-control', 'disabled')) }}
+
+
+                      <br />
+
+                      {{  Form::label('state') }}
+
+                      {{  Form::text('company_state_view_company', '' , array('id' => 'input_text_company_state_view_company', 'class' => 'form-control', 'disabled')) }}
+
+
+                      <br />
+                   
+                      {{  Form::label('description') }}
+
+                      {!! Form::textarea('company_description_view_company', '', array('id' => 'input_text_company_description_view_company', 'class' => 'form-control', 'rows' => 4, 'cols' => 54, 'disabled')) !!}
+
+                      
+
+                      {{ Form::close() }}
+                      
+                    </div>
+
+
+                    <div class="modal-footer">
+                      
+
+                    
+                      {{  Form::button('Close', ['id' => 'btn_close_modal_view_company', 'class' => 'btn btn-danger btn-sm']) }}
+
+                     
+
+                    </div>
+
+
+              </div>
+            </div>
+          </div>
+
+        <!-- Modal Div End -->
+
+
+
+
+        <!-- Modal Div Start -->
+        <div class="modal fade" id="modal_edit_company" tabindex="-1" role="dialog" aria-labelledby="modal_edit_company_label" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+
+
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modal_create_company_label">EDIT COMPANY</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+
+
+                    <div class="modal-body">
+
+                      {{ Form::open(array('id' => 'form_company_edit')) }}
+
+                      
+                      {{  Form::label('company_name') }} 
+
+                      {{  Form::text('company_name_edit_company', '' , array('id' => 'input_text_company_name_edit_company', 'class' => 'form-control')) }}
+
+                      <div id="company_update_error_div_companyname"></div>
+                      
+    
+                      <br />
+
+
+                      {{  Form::label('contact_person') }}
+
+                      {{  Form::text('contact_person_edit_company', '' , array('id' => 'input_text_contact_person_edit_company', 'class' => 'form-control')) }}
+
+                      <div id="company_update_error_div_contactperson"></div>
+
+
+                      <br />
+
+
+                      {{  Form::label('address') }}
+
+                      {{  Form::text('address_edit_company', '' , array('id' => 'input_text_company_address_edit_company', 'class' => 'form-control')) }}
+
+
+                      <br />
+
+
+                      {{  Form::label('phone') }}
+
+                      {{  Form::text('company_phone_edit_company', '' , array('id' => 'input_text_company_phone_edit_company', 'class' => 'form-control')) }}
+
+                      <div id="company_update_error_div_companyphone"></div>
+
+                      <br />
+
+
+                      {{  Form::label('fax') }}
+
+                      {{  Form::text('company_fax_edit_company', '' , array('id' => 'input_text_company_fax_edit_company', 'class' => 'form-control')) }}
+
+                      <br />
+
+
+                      {{  Form::label('email') }}
+
+                      {{  Form::text('company_email_edit_company', '' , array('id' => 'input_text_company_email_edit_company', 'class' => 'form-control')) }}
+
+                      <div id="company_update_error_div_companyemail"></div>
+
+
+                      <br />
+
+
+                      {{  Form::label('zip') }}
+
+                      {{  Form::text('company_zip_edit_company', '' , array('id' => 'input_text_company_zip_edit_company', 'class' => 'form-control')) }}
+                      
+
+                      <br />
+
+                      {{  Form::label('city') }}
+
+                      {{  Form::text('company_city_edit_company', '' , array('id' => 'input_text_company_city_edit_company', 'class' => 'form-control')) }}
+
+
+                      <br />
+
+                      {{  Form::label('state') }}
+
+                      {{  Form::text('company_state_edit_company', '' , array('id' => 'input_text_company_state_edit_company', 'class' => 'form-control')) }}
+
+
+                      <br />
+                   
+                      {{  Form::label('description') }}
+
+                      {!! Form::textarea('company_description_edit_company', '', array('id' => 'input_text_company_description_edit_company', 'class' => 'form-control', 'rows' => 4, 'cols' => 54)) !!}
+
+                       
+                      {{ Form::hidden('company_id_edit_company', '', array('id' => 'input_hidden_company_id_edit_company')) }}
+
+                      {{ Form::close() }}
+                      
+                    </div>
+
+
+                    <div class="modal-footer">
+                      
+
+                    
+                      {{  Form::button('Close', ['id' => 'btn_close_modal_edit_company', 'class' => 'btn btn-danger btn-sm']) }}
+
+                      {{  Form::button('Update', ['id' => 'btn_update_company', 'class' => 'btn btn-success btn-sm'])  }}
+
+                    </div>
+
+
+              </div>
+            </div>
+          </div>
+
+        <!-- Modal Div End -->
+
+ 
+
+
+
+
+  <script src="{!!url('/js/jquery.3.5.1.min.js')!!}"></script>
+
+  <script src="{!!url('/js/companies_main.js')!!}"></script>
+
+ @endsection
+
+ 
+
+
