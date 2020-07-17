@@ -76,7 +76,7 @@
 
 
                     <div class="modal-header">
-                      <h5 class="modal-title" id="modal_create_company_label">CREATE CLIENT</h5>
+                      <h5 class="modal-title" id="modal_create_client_label">CREATE CLIENT</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -85,237 +85,341 @@
 
                     <div class="modal-body">
 
-                      {{ Form::open(array('id' => 'form_client_create')) }}
 
-                      
-                      {{  Form::label('first_name') }} 
-
-                      {{  Form::text('client_first_name_create_client', '' , array('id' => 'input_text_client_first_name_create_client', 'class' => 'form-control')) }}
-
-                      
-                      <br />
+                    {{ Form::open(array('id' => 'form_client_create')) }}
 
 
-                      {{  Form::label('last_name') }}
+                    <table width="100%">
 
-                      {{  Form::text('client_last_name_create_client', '' , array('id' => 'input_text_client_last_name_create_client', 'class' => 'form-control')) }}
+                        <tr>
+                        
+                            <td>
+                            
+                             {{  Form::label('first_name') }} 
 
+                             {{  Form::text('client_first_name_create_client', '' , array('id' => 'input_text_client_first_name_create_client', 'class' => 'form-control')) }}
+                            
+                             <div id="client_create_error_div_firstname"></div>
 
-                      <br />
+                             <br />
 
-
-                      {{  Form::label('business_name') }}
-
-                      {{  Form::text('client_businessname_create_client', '' , array('id' => 'input_text_client_businessname_create_client', 'class' => 'form-control')) }}
-
-
-                      <br />
-
-
-                      {{  Form::label('client_type') }}
-
-                      {{  Form::select('client_type_id', App\ClientType::pluck('name','id'), '3', ['class' => 'form-control']) }}
+                            </td>  
 
 
-                      <br />
+                            <td> 
+                            
+                             {{  Form::label('last_name') }}
+
+                             {{  Form::text('client_last_name_create_client', '' , array('id' => 'input_text_client_last_name_create_client', 'class' => 'form-control')) }}
+                        
+                             <div id="client_create_error_div_lastname"></div>
+
+                             <br />
+
+                            </td>  
 
 
-                      {{  Form::label('company') }}
+                            <td colspan="2">  
+                            
+                             {{  Form::label('business_name') }}
+ 
+                             {{  Form::text('client_businessname_create_client', '' , array('id' => 'input_text_client_businessname_create_client', 'class' => 'form-control')) }}
+                        
+                             <div id="client_create_error_div_businessname"></div>
 
-                      {{  Form::select('company_id', App\Company::pluck('name','id'), '3', ['class' => 'form-control']) }}
+                             <br /> 
 
+                            </td>
 
-                      <br />
-
-
-                      {{  Form::label('address') }}
-
-                      {{  Form::text('address', '' , array('id' => 'input_text_company_address_create_company', 'class' => 'form-control')) }}
-
-                      <br />
-
-
-                      {{  Form::label('zip') }}
-
-                      {{  Form::text('company_zip_create_company', '' , array('id' => 'input_text_company_zip_create_company', 'class' => 'form-control')) }}
-                      
-
-                      <br />
-
-                      {{  Form::label('city') }}
-
-                      {{  Form::text('company_city_create_company', '' , array('id' => 'input_text_company_city_create_company', 'class' => 'form-control')) }}
-
-
-                      <br />
-
-                      {{  Form::label('state') }}
-
-                      {{  Form::text('company_state_create_company', '' , array('id' => 'input_text_company_state_create_company', 'class' => 'form-control')) }}
-
-                  
-                      <br />
-
-
-                      {{  Form::label('contact_person_1') }}
-
-                      {{  Form::text('company_zip_create_company', '' , array('id' => 'input_text_company_zip_create_company', 'class' => 'form-control')) }}
-
-
-                       <br />
-
-                       {{  Form::label('contact_person_2') }}
-
-                       {{  Form::text('company_city_create_company', '' , array('id' => 'input_text_company_city_create_company', 'class' => 'form-control')) }}
-
-
-                       <br />
-
-                       {{  Form::label('contact_person_3') }}
-
-                       {{  Form::text('company_state_create_company', '' , array('id' => 'input_text_company_state_create_company', 'class' => 'form-control')) }}
-                     
-
-                       <br />
+                        </tr>
 
                    
+                         
+                        <tr>
 
-                      {{  Form::label('contact_person_1_role') }}
 
-                      {{  Form::text('company_zip_create_company', '' , array('id' => 'input_text_company_zip_create_company', 'class' => 'form-control')) }}
+                            <td>
+                                
+                             {{  Form::label('client_type') }}
+ 
+                             {{  Form::select('client_client_type_create_client', App\ClientType::whereIn('id', array(3, 4))->pluck('name','id'), null, ['id' => 'input_text_client_client_type_create_client', 'placeholder' => 'Select Client Type', 'class' => 'form-control']) }}
 
+                             <div id="client_create_error_div_clienttype"></div>
 
-                       <br />
+                             <br /> 
+                                
+                            </td>  
 
-                       {{  Form::label('contact_person_2_role') }}
 
-                       {{  Form::text('company_city_create_company', '' , array('id' => 'input_text_company_city_create_company', 'class' => 'form-control')) }}
+                            <td colspan="3"> 
+                                
+                             {{  Form::label('company') }}
 
+                             {{  Form::select('client_company_create_client', App\Company::pluck('name','id'), null, ['id' => 'input_text_client_company_create_client', 'placeholder' => 'Select Company', 'class' => 'form-control']) }}
 
-                       <br />
+                             <div id="client_create_error_div_company"></div>
 
-                       {{  Form::label('contact_person_3_role') }}
+                             <br /> 
+                                
+                            </td>  
+        
 
-                       {{  Form::text('company_state_create_company', '' , array('id' => 'input_text_company_state_create_company', 'class' => 'form-control')) }}
+                        </tr>
 
 
-                      <br />
+                        <tr>
 
 
-                      {{  Form::label('phone_1') }}
+                            <td colspan="4">
 
-                      {{  Form::text('company_phone_create_company', '' , array('id' => 'input_text_company_phone_create_company', 'class' => 'form-control')) }}
+                             {{  Form::label('address') }}
 
-                      
-                      <br />
+                             {{  Form::text('client_address_create_client', '' , array('id' => 'input_text_client_address_create_client', 'class' => 'form-control')) }}
 
+                             <br />
+                            
+                            </td>
 
-                      {{  Form::label('phone_2') }}
+                       </tr>
 
-                      {{  Form::text('company_phone_create_company', '' , array('id' => 'input_text_company_phone_create_company', 'class' => 'form-control')) }}
 
 
-                      <br />
+                       <tr>
 
 
-                      {{  Form::label('cell_no') }}
+                            <td>
 
-                      {{  Form::text('company_phone_create_company', '' , array('id' => 'input_text_company_phone_create_company', 'class' => 'form-control')) }}
 
+                             {{  Form::label('zip') }}
 
-                      <br />
+                             {{  Form::text('client_zip_create_client', '' , array('id' => 'input_text_client_zip_create_client', 'class' => 'form-control')) }}
 
+                             <br />
 
-                      {{  Form::label('fax') }}
+                            </td>
 
-                      {{  Form::text('company_phone_create_company', '' , array('id' => 'input_text_company_phone_create_company', 'class' => 'form-control')) }}
 
 
-                      <br />
+                            <td>
 
 
-                      {{  Form::label('email_1') }}
+                             {{  Form::label('city') }}
 
-                      {{  Form::text('company_email_create_company', '' , array('id' => 'input_text_company_email_create_company', 'class' => 'form-control')) }}
+                             {{  Form::text('client_city_create_client', '' , array('id' => 'input_text_client_city_create_client', 'class' => 'form-control')) }}
 
-                      <div id="company_create_error_div_companyemail"></div>
+                             <br />
 
+                            </td>
 
-                      <br />
 
 
-                      {{  Form::label('email_2') }}
+                            <td colspan="2">
 
-                      {{  Form::text('company_email_create_company', '' , array('id' => 'input_text_company_email_create_company', 'class' => 'form-control')) }}
 
+                             {{  Form::label('state') }}
 
-                      <br />
+                             {{  Form::text('client_state_create_client', '' , array('id' => 'input_text_client_state_create_client', 'class' => 'form-control')) }}
 
+                             <br />
 
-                      {{  Form::label('email_3') }}
+                            </td>
 
-                      {{  Form::text('company_email_create_company', '' , array('id' => 'input_text_company_email_create_company', 'class' => 'form-control')) }}
-                     
 
-                      <br />
+                       </tr>
 
 
-                      {{  Form::label('client_referral') }}
 
-                      {!! Form::text('company_description_create_company', '', array('id' => 'input_text_company_description_create_company', 'class' => 'form-control', 'rows' => 4, 'cols' => 54)) !!}
+                        <tr>
 
 
-                      <br />
+                            <td>
 
 
-                      {{  Form::label('office_working_day_start') }}
+                             {{  Form::label('contact_person_1') }}
 
-                      {!! Form::select('office_working_day_start', array('monday' => 'Monday', 'tuesday' => 'Tuesday', 'wednesday' => 'Wednesday', 'thursday' => 'Thursday', 'friday' => 'Friday'), 'monday', ['class' => 'form-control']) !!}
+                             {{  Form::text('client_contact_person_1_create_client', '' , array('id' => 'input_text_client_contact_person_1_create_client', 'class' => 'form-control')) }}
 
-                      
 
-                      <br />
+                             <br />
 
 
+                            </td>
 
-                     {{  Form::label('office_working_day_end') }}
 
-                     {!! Form::select('office_working_day_end', array('monday' => 'Monday', 'tuesday' => 'Tuesday', 'wednesday' => 'Wednesday', 'thursday' => 'Thursday', 'friday' => 'Friday'), 'friday', ['class' => 'form-control']) !!}
+                            <td>
 
 
-                     <br />
+                            
+                            {{  Form::label('contact_person_2') }}
 
+                            {{  Form::text('client_contact_person_2_create_client', '' , array('id' => 'input_text_client_contact_person_2_create_client', 'class' => 'form-control')) }}
 
-                     {{  Form::label('office_working_hour_start') }}
 
-                     {!! Form::select('office_working_hour_start', array('08:00 am' => '08:00 AM', '08:30 am' => '08:30 AM'), '08:30 am', ['class' => 'form-control']) !!}
+                            <br />
+
+
+                            </td>
+
+
+
+                            <td colspan="2">
+
+
+                            
+                            {{  Form::label('contact_person_3') }}
+
+                            {{  Form::text('client_contact_person_3_create_client', '' , array('id' => 'input_text_client_contact_person_3_create_client', 'class' => 'form-control')) }}
+
+
+                            <br />
+
+
+                            </td>
+
+
+                        </tr>
+
+
+
+                        <tr>
+
+
+                            <td>
+
+
+                             {{  Form::label('phone_1') }}
+
+                             {{  Form::text('client_phone_1_create_client', '' , array('id' => 'input_text_client_phone_1_create_client', 'class' => 'form-control')) }}
+
+
+                             <br />
+
+
+                            </td>
+
+
+                            <td>
+
+
+                             {{  Form::label('phone_2') }}
+
+                             {{  Form::text('client_phone_2_create_client', '' , array('id' => 'input_text_client_phone_2_create_client', 'class' => 'form-control')) }}
+
+                             <br />
+
+
+                            </td>
+
+
+
+                            <td colspan="2">
+
+
+                             {{  Form::label('cell_no') }}
+
+                             {{  Form::text('client_cellno_create_client', '' , array('id' => 'input_text_client_cellno_create_client', 'class' => 'form-control')) }}
+
+
+                             <br />
+
+
+                            </td>
+
+
+                        </tr>
+
+
+
+
+                        <tr>
+
+
+                            <td>
+
+
+                             {{  Form::label('email_1') }}
+
+                             {{  Form::text('client_email1_create_client', '' , array('id' => 'input_text_client_email1_create_client', 'class' => 'form-control')) }}
+
+                              
+                             <div id="client_create_error_div_email1"></div>
+
+                             <br />
+
+
+                            </td>
+
+
+                            <td>
+
+
+                             {{  Form::label('email_2') }}
+
+                             {{  Form::text('client_email2_create_client', '' , array('id' => 'input_text_client_email2_create_client', 'class' => 'form-control')) }}
+
+
+                             <br />
+
+
+                            </td>
+
+
+
+                            <td colspan="2">
+
+
+                             {{  Form::label('email_3') }}
+
+                             {{  Form::text('client_email3_create_client', '' , array('id' => 'input_text_client_email3_create_client', 'class' => 'form-control')) }}
+
+ 
+                             <br />
+
+
+                            </td>
+
+
+                        </tr>
+
+
+
+                    <tr>
+
+
+                    <td>
+
+
+                    {{  Form::label('fax') }}
+
+                    {{  Form::text('company_phone_create_company', '' , array('id' => 'input_text_company_phone_create_company', 'class' => 'form-control')) }}
 
 
                     <br />
 
 
-                    {{  Form::label('office_working_hour_end') }}
-
-                    {!! Form::select('office_working_hour_end', array('08:00 am' => '08:00 AM', '08:30 am' => '08:30 AM'), '08:30 am', ['class' => 'form-control']) !!}
-                    
-
-                    <br />
+                    </td>
 
 
-                    {{  Form::label('charging_method') }}
-
-                    {{  Form::select('charging_method_id', App\ChargingMethod::pluck('name','id'), '3', ['class' => 'form-control']) }}
+                    <td>
 
 
-                    <br />
 
-
-                    {{  Form::label('charging_rate') }}
+                    {{  Form::label('client_referral') }}
 
                     {!! Form::text('company_description_create_company', '', array('id' => 'input_text_company_description_create_company', 'class' => 'form-control', 'rows' => 4, 'cols' => 54)) !!}
 
 
+
+
                     <br />
+
+
+                    </td>
+
+
+
+                    <td colspan="2">
+
 
 
                     {{  Form::label('business_category') }}
@@ -326,15 +430,172 @@
                     <br />
 
 
+                    </td>
+
+
+                    </tr>
+
+
+
+
+                    <tr>
+
+
+                    <td>
+
+                    {{  Form::label('office_working_day_start') }}
+
+                    {!! Form::select('office_working_day_start', array('monday' => 'Monday', 'tuesday' => 'Tuesday', 'wednesday' => 'Wednesday', 'thursday' => 'Thursday', 'friday' => 'Friday'), 'monday', ['class' => 'form-control']) !!}
+                     
+                    <br />
+
+                    </td>
+
+
+
+                    <td>
+
+
+                    {{  Form::label('office_working_day_end') }}
+
+                    {!! Form::select('office_working_day_end', array('monday' => 'Monday', 'tuesday' => 'Tuesday', 'wednesday' => 'Wednesday', 'thursday' => 'Thursday', 'friday' => 'Friday'), 'friday', ['class' => 'form-control']) !!}
+                     
+                    <br />
+
+                    </td>
+
+
+                    <td>
+
+
+                    {{  Form::label('s') }}
+
+                    {!! Form::select('office_working_hour_start', array('08:00 am' => '08:00 AM', '08:30 am' => '08:30 AM'), '08:30 am', ['class' => 'form-control']) !!}
+                    
+                    <br />
+
+                    </td>
+
+
+                    <td>
+
+                    {{  Form::label('e') }}
+
+                    {!! Form::select('office_working_hour_end', array('08:00 am' => '08:00 AM', '08:30 am' => '08:30 AM'), '08:30 am', ['class' => 'form-control']) !!}
+        
+                    <br />
+
+                    </td>
+
+
+                    </tr>
+
+
+
+                    <tr>
+
+
+                    <td>
+
+                   
+                    {{  Form::label('charging_method') }}
+
+                    {{  Form::select('charging_method_id', App\ChargingMethod::pluck('name','id'), '3', ['class' => 'form-control']) }}
+
+                    <br />
+
+                    </td>
+
+
+
+                    <td>
+
+
+                    {{  Form::label('charging_rate') }}
+
+                    {!! Form::text('company_description_create_company', '', array('id' => 'input_text_company_description_create_company', 'class' => 'form-control', 'rows' => 4, 'cols' => 54)) !!}
+
+                    <br />
+
+                    </td>
+
+
+                    <td>
+
+
+                    {{  Form::label('daily_backup') }}
+
+                    {!! Form::checkbox('namex', 'value1', array('class' => 'form-control')) !!}
+
+                    <br />
+
+                    </td>
+
+
+                    <td>
+
+                    {{  Form::label('weekly_backup') }}
+
+                    {!! Form::checkbox('namex', 'value1', array('id' => 'chkweekly')) !!}
+
+
+                    <br />
+
+                    </td>
+
+
+
+
+                    </tr>
+
+
+
+
+                    <tr>
+
+
+                    <td colspan="4">
 
                     {{  Form::label('network_structure') }}
 
                     {!! Form::text('company_description_create_company', '', array('id' => 'input_text_company_description_create_company', 'class' => 'form-control', 'rows' => 4, 'cols' => 54)) !!}
 
+                    <br />
 
-                    {{ Form::close() }}
+                    </td>
+
+
+                    </tr>
+
+
+
+                    <tr>
+
+
+                    <td colspan="4">
+
+                   
+
+                    {{  Form::label('description') }}
+
+                    {!! Form::text('description', 'example@gmail.com', array('class' => 'form-control')) !!}
+
+                    <br />
+
+                    </td>
+
+
+                    </tr>
+            
+            
+
+                   </table>
+
+                    
+
+                {{ Form::close() }}
                       
-                    </div>
+             </div>
 
 
                     <div class="modal-footer">
@@ -343,7 +604,7 @@
                     
                       {{  Form::button('Close', ['id' => 'btn_close_modal_create_company', 'class' => 'btn btn-danger btn-sm']) }}
 
-                      {{  Form::button('Create', ['id' => 'btn_create_company', 'class' => 'btn btn-success btn-sm'])  }}
+                      {{  Form::button('Create', ['id' => 'btn_create_client', 'class' => 'btn btn-success btn-sm'])  }}
 
                     </div>
 
@@ -604,7 +865,7 @@
 
   <script src="{!!url('/js/jquery.3.5.1.min.js')!!}"></script>
 
-  <script src="{!!url('/js/companies_main.js')!!}"></script>
+  <script src="{!!url('/js/clients_main.js')!!}"></script>
 
  @endsection
 

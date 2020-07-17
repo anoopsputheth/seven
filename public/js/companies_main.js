@@ -248,7 +248,7 @@ function insertCompany()
         success : function(data){
 
 
-            $('[id^=errordiv_]').html('');
+            $('[id^=company_create_error_div_]').html('');
 
             if(data.errors)
             {

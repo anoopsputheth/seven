@@ -64,3 +64,5 @@ Route::post('/companies/update', 'CompanyController@update')->name('company.upda
 
 
 Route::get('/clients', 'ClientController@index')->name('client.index');
+
+Route::post('/clients/create', 'ClientController@insert')->name('client.create');
