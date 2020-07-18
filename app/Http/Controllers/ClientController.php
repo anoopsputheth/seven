@@ -31,17 +31,29 @@ class ClientController extends Controller
     public function insert(Request $request)
     {
 
+        $validation_messages = [
+
+            'required' => ':attribute field is required.',
+            'required_if' => ':attribute field is required.',
+            'email' => ':attribute must be a valid email address.',
+
+        ];
+
+
         $validator = Validator::make($request->all(), [
 
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'businessname' => 'required',
+            'firstname' => 'required_if:clienttype,4',
+            'lastname' => 'required_if:clienttype,4',
+            'businessname' => 'required_if:clienttype,3',
             'clienttype' => 'required',
             'company' => 'required',
             'email1' => 'required|email',
+            'email2' => 'sometimes|nullable|email',
+            'email3' => 'sometimes|nullable|email',
+            'businesscategory' => 'required',
            
 
-        ]);
+        ], $validation_messages);
 
 
         if ($validator->fails())
@@ -74,21 +86,21 @@ class ClientController extends Controller
         $client->email_1 = $request->email1;
         $client->email_2 = $request->email2;
         $client->email_3 = $request->email3;
-
-        $client->daily_backup = 'yes';
-        $client->weekly_backup = 'yes';
-        $client->business_category_id = 1;
-
-
-
-
-
-
+        $client->fax = $request->fax;
+        $client->client_referral = $request->clientreferral;
+        $client->business_category_id = $request->businesscategory;
+        $client->office_working_day_start = $request->officestartday;
+        $client->office_working_day_end = $request->officeendday;
+        $client->office_working_hour_start = $request->officestarthour;
+        $client->office_working_hour_end = $request->officeendhour;
+        $client->daily_backup = $request->dailybackup;
+        $client->weekly_backup = $request->weeklybackup;
+        $client->description = $request->description;
+        
+        
         $client->save();
 
         return response()->json($client);
-
-
 
 
     }

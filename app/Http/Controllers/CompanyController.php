@@ -86,7 +86,13 @@ class CompanyController extends Controller
 
     
     public function insert(Request $request)
-    {
+    {   
+
+        $validation_messages = [
+
+            'required' => ':attribute field is required.',
+        ];
+        
 
         $validator = Validator::make($request->all(), [
 
@@ -95,7 +101,7 @@ class CompanyController extends Controller
             'companyphone' => 'required',
             'companyemail' => 'required|email'
 
-        ]);
+        ], $validation_messages);
 
 
         if ($validator->fails())

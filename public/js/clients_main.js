@@ -234,11 +234,11 @@ $(document).ready(function(){
 
           'address' :  $('[name=client_address_create_client]').val(),
 
-          'zip' :  $('[name=company_zip_create_company]').val(),
+          'zip' :  $('[name=client_zip_create_client]').val(),
 
-          'city' :  $('[name=company_city_create_company]').val(),
+          'city' :  $('[name=client_city_create_client]').val(),
 
-          'state' :  $('[name=company_state_create_company]').val(),
+          'state' :  $('[name=client_state_create_client]').val(),
 
           'contactperson1' :  $('[name=client_contact_person_1_create_client]').val(),
 
@@ -256,10 +256,27 @@ $(document).ready(function(){
 
           'email2' :  $('[name=client_email2_create_client]').val(),
 
+          'email3' :  $('[name=client_email3_create_client]').val(),
 
+          'fax' :     $('[name=client_fax_create_client]').val(),
 
+          'clientreferral' :  $('[name=client_referral_create_client]').val(),
 
-          
+          'businesscategory' :  $('[name=client_business_category_create_client]').val(),
+
+          'officestartday' :  $('[name=client_office_working_day_start_create_client]').val(),
+
+          'officeendday' :  $('[name=client_office_working_day_end_create_client]').val(),
+
+          'officestarthour' :  $('[name=client_office_working_hour_start_create_client]').val(),
+
+          'officeendhour' :  $('[name=client_office_working_hour_end_create_client]').val(),
+
+          'dailybackup' :  $('[name=client_daily_backup_create_client]').is(":checked") ? 'yes' : 'no',
+
+          'weeklybackup' :  $('[name=client_weekly_backup_create_client]').is(":checked") ? 'yes' : 'no',
+
+          'description' :  $('[name=client_description_create_client]').val(),
           
   
           },
