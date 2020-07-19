@@ -18,18 +18,6 @@ use Illuminate\Http\Request;
 */
 
 
-Route::get('/todos', 'TodoController@index')->name('todo.index');
-
-Route::get('/todos/create', 'TodoController@create');
-
-Route::post('/todos/create', 'TodoController@store');
-
-Route::get('/todos/{todo}/edit', 'TodoController@edit');
-
-Route::patch('/todos/{todo}/update', 'TodoController@update')->name('todo.update');
-
-
-
 
 Route::get('/', function () {
     return view('welcome');
@@ -63,6 +51,9 @@ Route::get('/companies/fetch/{id}', 'CompanyController@fetch')->name('company.fe
 Route::post('/companies/update', 'CompanyController@update')->name('company.update');
 
 
+
 Route::get('/clients', 'ClientController@index')->name('client.index');
 
 Route::post('/clients/create', 'ClientController@insert')->name('client.create');
+
+

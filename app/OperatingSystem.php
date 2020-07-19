@@ -4,9 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Todo extends Model
+class OperatingSystem extends Model
 {
-
-   protected $fillable = ['title'];
-
+    //
 }

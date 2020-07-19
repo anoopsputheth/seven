@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTodosTable extends Migration
+class CreateOperatingSystemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,16 @@ class CreateTodosTable extends Migration
      */
     public function up()
     {
-        Schema::create('todos', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->boolean('completed')->default(false);
+        Schema::create('operating_systems', function (Blueprint $table) {
+            
+            $table->bigIncrements('id');
+            
+            $table->string('name', 100)->unique();
+            $table->string('description')->nullable();
+
             $table->timestamps();
+            $table->softDeletesTz('deleted_at');
+
         });
     }
 
@@ -28,6 +33,6 @@ class CreateTodosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('todos');
+        Schema::dropIfExists('operating_systems');
     }
 }
