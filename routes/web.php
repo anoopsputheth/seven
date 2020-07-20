@@ -38,17 +38,17 @@ Route::get('/generate-pdf','PDFController@generatePDF');
 
 
 
-Route::get('/companies', 'CompanyController@index')->name('company.index');
+Route::get('/companies', 'CompanyController@index')->name('company.index')->middleware('auth');
 
-Route::get('/companies/indexsearch', 'CompanyController@indexsearch')->name('company.indexsearch');
+Route::get('/companies/indexsearch', 'CompanyController@indexsearch')->name('company.indexsearch')->middleware('auth');
 
-Route::get('/companies/ajaxpagination', 'CompanyController@ajaxpagination')->name('company.ajaxpagination');
+Route::get('/companies/ajaxpagination', 'CompanyController@ajaxpagination')->name('company.ajaxpagination')->middleware('auth');
 
-Route::post('/companies/create', 'CompanyController@insert')->name('company.create');
+Route::post('/companies/create', 'CompanyController@insert')->name('company.create')->middleware('auth');
 
-Route::get('/companies/fetch/{id}', 'CompanyController@fetch')->name('company.fetch');
+Route::get('/companies/fetch/{id}', 'CompanyController@fetch')->name('company.fetch')->middleware('auth');
 
-Route::post('/companies/update', 'CompanyController@update')->name('company.update');
+Route::post('/companies/update', 'CompanyController@update')->name('company.update')->middleware('auth');
 
 
 

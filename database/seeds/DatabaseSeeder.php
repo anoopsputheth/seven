@@ -14,9 +14,10 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
 
-          //  ClientTypeSeeder::class,
-          //  ChargingMethodSeeder::class,
-              BusinessCategorySeeder::class
+            ClientTypeSeeder::class,
+            ChargingMethodSeeder::class,
+            BusinessCategorySeeder::class,
+            RoleSeeder::class
             
         ]);
         
