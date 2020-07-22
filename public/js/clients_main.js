@@ -7,7 +7,7 @@ $(document).ready(function(){
   
       var page = $(this).attr('href').split('page=')[1];
   
-      fetchPaginatedCompanies(page);
+      fetchPaginatedClients(page);
   
     });
   
@@ -24,6 +24,40 @@ $(document).ready(function(){
       $('#form_company_create').trigger("reset");
   
     }); // end on('hidden.bs.modal'
+
+
+    
+    $("#input_select_client_client_type_create_client").change(function() {
+      
+      if($('option:selected', this).text() == 'Personal')
+      {
+   
+          $('#input_text_client_businessname_create_client').val('').attr('readonly', true);
+
+          $('#input_text_client_first_name_create_client').attr('readonly', false);
+          $('#input_text_client_last_name_create_client').attr('readonly', false);
+         
+      }
+      else if($('option:selected', this).text() == 'Business')
+      {
+          
+          $('#input_text_client_businessname_create_client').attr('readonly', false);
+
+          $('#input_text_client_first_name_create_client').val('').attr('readonly', true);
+          $('#input_text_client_last_name_create_client').val('').attr('readonly', true);
+
+      }
+      else
+      {
+          
+          $('#input_text_client_businessname_create_client').val('').attr('readonly', false);
+          $('#input_text_client_first_name_create_client').val('').attr('readonly', false);
+          $('#input_text_client_last_name_create_client').val('').attr('readonly', false);
+
+      }
+
+    });
+    
   
   
   
@@ -301,16 +335,16 @@ $(document).ready(function(){
       
               }
   
-              else  // saved company so reload paginated records
+              else  // saved client so reload paginated records
               {
                 
                   $.ajax({
   
-                    url : './companies/ajaxpagination?page=1',
+                    url : './clients/ajaxpagination?page=1',
               
                   }).done(function(data){
               
-                      $('#table_paginted_companies tbody').html(data);
+                      $('#table_paginted_clients tbody').html(data);
                   });
   
               }
@@ -394,7 +428,7 @@ $(document).ready(function(){
               
                   }).done(function(data){
               
-                    $('#table_paginted_companies tbody').html(data);
+                    $('#table_paginted_clients tbody').html(data);
   
                     $('#modal_edit_company').modal('hide');
   
@@ -413,24 +447,24 @@ $(document).ready(function(){
   
   
   
-  function fetchPaginatedCompanies(page)
+  function fetchPaginatedClients(page)
   {
   
       $.ajax({
   
-        url : './companies/ajaxpagination?page='+page,
+        url : './clients/ajaxpagination?page='+page,
   
         data : {
   
-          'search_company_name' : $('input[name=search_company_name]').val(),
-          'search_contact_person' : $('input[name=search_contact_person]').val(),
+          //'search_company_name' : $('input[name=search_company_name]').val(),
+          //'search_contact_person' : $('input[name=search_contact_person]').val(),
   
         }
   
       }).done(function(data){
   
-        $('#table_paginted_companies tbody').html(data);
+        $('#table_paginted_clients tbody').html(data);
   
       });
   
-  }   // end function fetchPaginatedCompanies()
+  }   // end function fetchPaginatedClients()

@@ -54,6 +54,14 @@ Route::post('/companies/update', 'CompanyController@update')->name('company.upda
 
 Route::get('/clients', 'ClientController@index')->name('client.index');
 
+Route::get('/clients/indexsearch', 'ClientController@indexsearch')->name('client.indexsearch');
+
+Route::get('/clients/ajaxpagination', 'ClientController@ajaxpagination')->name('client.ajaxpagination');
+
+
 Route::post('/clients/create', 'ClientController@insert')->name('client.create');
+
+
+
 
 

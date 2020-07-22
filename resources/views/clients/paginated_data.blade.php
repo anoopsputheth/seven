@@ -3,8 +3,10 @@
     @foreach($clients as $client)
 
 <tr> 
+     
+ @php  $clientname = ($client->client_type_id == 3) ? $client->businessname :  $client->firstname. ' '.$client->lastname; @endphp   
 
-     <td width="20%"> {{ $client->firstname. ' '.$client->lastname }} </td>
+     <td width="20%"> {{ $clientname }} </td>
 
      <td width="10%"> {{ $client->zip }} </td>
 
