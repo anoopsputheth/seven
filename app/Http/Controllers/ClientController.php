@@ -34,19 +34,26 @@ class ClientController extends Controller
 
         if(!empty($request->input('search_client_name')))
         {   
-            array_push($searchmap, array('',   'like', '%'.$request->input('search_client_name').'%'));
+            array_push($searchmap, array(\DB::raw('concat(firstname, " ", lastname)'),   'like', '%'.$request->input('search_client_name').'%'));
+          
         }
 
 
-        if(!empty($request->input('')))
+        if(!empty($request->input('search_client_phone')))
         {  
-            array_push($searchmap, array('',   'like', '%'.$request->input('').'%'));
+            array_push($searchmap, array('phone_1',   'like', '%'.$request->input('search_client_phone').'%'));
+        }
+
+
+        if(!empty($request->input('search_client_email')))
+        {  
+            array_push($searchmap, array('email_1',   'like', '%'.$request->input('search_client_email').'%'));
         }
         
 
         $clients =  Client::where($searchmap)->orderBy('firstname', 'asc')->paginate(2);
 
-        return view('companies.paginated_data', array('companies' =>  $companies, 'search_company_name' => $request->input('search_company_name'), 'search_contact_person' => $request->input('search_contact_person')));
+        return view('clients.paginated_data', array('clients' =>  $clients, 'search_client_name' => $request->input('search_client_name'), 'search_client_phone' => $request->input('search_client_phone'), 'search_client_email' => $request->input('search_client_email')));
 
     }
 
@@ -60,23 +67,28 @@ class ClientController extends Controller
 
             $searchmap = array();
 
-            if(!empty($request->input('')))
-            {  
-                array_push($searchmap, array('',   'like', '%'.$request->input('').'%'));
-                   
+            if(!empty($request->input('search_client_name')))
+            {   
+                array_push($searchmap, array(\DB::raw('concat(firstname, " ", lastname)'),   'like', '%'.$request->input('search_client_name').'%'));
+            
             }
 
 
-            if(!empty($request->input('')))
-            {   
-                array_push($searchmap, array('',   'like', '%'.$request->input('').'%'));
-                
+            if(!empty($request->input('search_client_phone')))
+            {  
+                array_push($searchmap, array('phone_1',   'like', '%'.$request->input('search_client_phone').'%'));
+            }
+
+
+            if(!empty($request->input('search_client_email')))
+            {  
+                array_push($searchmap, array('email_1',   'like', '%'.$request->input('search_client_email').'%'));
             }
 
 
             $clients =  Client::where($searchmap)->orderBy('firstname', 'asc')->paginate(2);
 
-            return view('clients.paginated_data', array('clients' => $clients, '' => $request->input(''), '' => $request->input('')));
+            return view('clients.paginated_data', array('clients' =>  $clients, 'search_client_name' => $request->input('search_client_name'), 'search_client_phone' => $request->input('search_client_phone'), 'search_client_email' => $request->input('search_client_email')));
 
         }
 

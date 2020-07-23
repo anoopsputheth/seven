@@ -14,7 +14,7 @@ $(document).ready(function(){
   
     $(document).on('click', '#btn_create_client', function(){ insertClient(); });  
   
-    $(document).on('click', '#btn_update_company', function(){ updateCompany(); });  
+    $(document).on('click', '#btn_update_client', function(){ updateClient(); });  
   
   
   
@@ -220,18 +220,19 @@ $(document).ready(function(){
   
         $.ajax({
   
-          url : './companies/indexsearch',
+          url : './clients/indexsearch',
   
           data : { 
   
-            'search_company_name' : $('input[name=search_company_name]').val(),
-            'search_contact_person' : $('input[name=search_contact_person]').val(),
+            'search_client_name' : $('input[name=search_client_name]').val(),
+            'search_client_phone' : $('input[name=search_client_phone]').val(),
+            'search_client_email' : $('input[name=search_client_email]').val(),
   
           }
   
         }).done(function(data){
   
-            $('#table_paginted_companies tbody').html(data);
+            $('#table_paginted_clients tbody').html(data);
   
         });
         
@@ -360,40 +361,77 @@ $(document).ready(function(){
   
   
   
-  function updateCompany()
+  function updateClient()
   {
   
         $.ajax({
   
           type : 'POST',
   
-          url  : './companies/update',
+          url  : './clients/update',
   
           data : {
   
-          '_token' : $('input[name=_token]').val(),
+            '_token' : $('input[name=_token]').val(),
+
+            'id' : $('#input_hidden_client_id_update_client').val(), 
   
-          'id' : $('#input_hidden_company_id_edit_company').val(), 
+            'firstname' : $('input[name=client_first_name_update_client]').val(),
+    
+            'lastname' : $('input[name=client_last_name_update_client]').val(),
+    
+            'businessname' : $('input[name=client_businessname_update_client]').val(),
   
-          'companyname' : $('input[name=company_name_edit_company]').val(),
+            'clienttype' :  $('[name=client_client_type_update_client]').val(),
   
-          'contactperson' : $('input[name=contact_person_edit_company]').val(),
+            'company' :  $('[name=client_company_update_client]').val(),
   
-          'companyaddress' : $('input[name=company_address_edit_company]').val(),
+            'address' :  $('[name=client_address_update_client]').val(),
   
-          'companyphone' : $('input[name=company_phone_edit_company]').val(),
+            'zip' :  $('[name=client_zip_update_client]').val(),
   
-          'companyfax' : $('input[name=company_fax_edit_company]').val(),
+            'city' :  $('[name=client_city_update_client]').val(),
   
-          'companyemail' : $('input[name=company_email_edit_company]').val(),
+            'state' :  $('[name=client_state_update_client]').val(),
   
-          'companyzip' : $('input[name=company_zip_edit_company]').val(),
+            'contactperson1' :  $('[name=client_contact_person_1_update_client]').val(),
   
-          'companycity' : $('input[name=company_city_edit_company]').val(),
+            'contactperson2' :  $('[name=client_contact_person_2_update_client]').val(),
   
-          'companystate' : $('input[name=company_state_edit_company]').val(),
+            'contactperson3' :  $('[name=client_contact_person_3_update_client]').val(),
   
-          'companydescription' : $('textarea[name=company_description_edit_company]').val(),
+            'phone1' :  $('[name=client_phone_1_update_client]').val(),
+  
+            'phone2' :  $('[name=client_phone_2_update_client]').val(),
+  
+            'cellno' :  $('[name=client_cellno_update_client]').val(),
+  
+            'email1' :  $('[name=client_email1_update_client]').val(),
+  
+            'email2' :  $('[name=client_email2_update_client]').val(),
+  
+            'email3' :  $('[name=client_email3_update_client]').val(),
+  
+            'fax' :     $('[name=client_fax_update_client]').val(),
+  
+            'clientreferral' :  $('[name=client_referral_update_client]').val(),
+  
+            'businesscategory' :  $('[name=client_business_category_update_client]').val(),
+  
+            'officestartday' :  $('[name=client_office_working_day_start_update_client]').val(),
+  
+            'officeendday' :  $('[name=client_office_working_day_end_update_client]').val(),
+  
+            'officestarthour' :  $('[name=client_office_working_hour_start_update_client]').val(),
+  
+            'officeendhour' :  $('[name=client_office_working_hour_end_update_client]').val(),
+  
+            'dailybackup' :  $('[name=client_daily_backup_update_client]').is(":checked") ? 'yes' : 'no',
+  
+            'weeklybackup' :  $('[name=client_weekly_backup_update_client]').is(":checked") ? 'yes' : 'no',
+  
+            'description' :  $('[name=client_description_update_client]').val(),
+            
   
           },
   
@@ -443,7 +481,7 @@ $(document).ready(function(){
         });  // end $.ajax({
   
   
-  }  // end function updateCompany()
+  }  // end function updateClient)
   
   
   
@@ -456,8 +494,9 @@ $(document).ready(function(){
   
         data : {
   
-          //'search_company_name' : $('input[name=search_company_name]').val(),
-          //'search_contact_person' : $('input[name=search_contact_person]').val(),
+            'search_client_name' : $('input[name=search_client_name]').val(),
+            'search_client_phone' : $('input[name=search_client_phone]').val(),
+            'search_client_email' : $('input[name=search_client_email]').val(),
   
         }
   

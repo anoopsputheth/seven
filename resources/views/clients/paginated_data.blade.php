@@ -14,9 +14,9 @@
 
      <td width="10%"> {{ $client->state }} </td>
 
-     <td width="15%"> {{ $client->phone }} </td>
+     <td width="15%"> {{ $client->phone_1 }} </td>
 
-     <td width="20%"> {{ $client->email }} </td>
+     <td width="20%"> {{ $client->email_1 }} </td>
 
      <td width="15%"> 
 
