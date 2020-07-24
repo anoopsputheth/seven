@@ -184,14 +184,29 @@ class ClientController extends Controller
     public function update(Request $request)
     {
 
+        $validation_messages = [
+
+            'required' => ':attribute field is required.',
+            'required_if' => ':attribute field is required.',
+            'email' => ':attribute must be a valid email address.',
+
+        ];
+
+
         $validator = Validator::make($request->all(), [
 
-            'companyname' => 'required|unique:companies,name,'.$request->id.'',
-            'contactperson' => 'required',
-            'companyphone' => 'required',
-            'companyemail' => 'required|email'
+            'firstname' => 'required_if:clienttype,4',
+            'lastname' => 'required_if:clienttype,4',
+            'businessname' => 'required_if:clienttype,3',
+            'clienttype' => 'required',
+            'company' => 'required',
+            'email1' => 'required|email',
+            'email2' => 'sometimes|nullable|email',
+            'email3' => 'sometimes|nullable|email',
+            'businesscategory' => 'required',
+           
 
-        ]);
+        ], $validation_messages);
 
 
         if ($validator->fails())
@@ -204,24 +219,43 @@ class ClientController extends Controller
         }
 
 
-        $company = Company::find($request->id);
+        $client = Client::find($request->id);
 
-        //return response()->json($company);
+        $client->firstname = $request->firstname;
+        $client->lastname = $request->lastname;
+        $client->businessname = $request->businessname;
+        $client->client_type_id = $request->clienttype;
+        $client->company_id = $request->company;
+        $client->address = $request->address;
+        $client->zip = $request->zip;
+        $client->city = $request->city;
+        $client->state = $request->state;
+        $client->contact_person_1 = $request->contactperson1;
+        $client->contact_person_2 = $request->contactperson2;
+        $client->contact_person_3 = $request->contactperson3;
+        $client->phone_1 = $request->phone1;
+        $client->phone_2 = $request->phone2;
+        $client->cell_no = $request->cellno;
+        $client->email_1 = $request->email1;
+        $client->email_2 = $request->email2;
+        $client->email_3 = $request->email3;
+        $client->fax = $request->fax;
+        $client->client_referral = $request->clientreferral;
+        $client->charging_rate = $request->chargingrate;
+        $client->charging_method_id = $request->chargingmethod;
+        $client->business_category_id = $request->businesscategory;
+        $client->office_working_day_start = $request->officestartday;
+        $client->office_working_day_end = $request->officeendday;
+        $client->office_working_hour_start = $request->officestarthour;
+        $client->office_working_hour_end = $request->officeendhour;
+        $client->daily_backup = $request->dailybackup;
+        $client->weekly_backup = $request->weeklybackup;
+        $client->description = $request->description;
+        
+        
+        $client->save();
 
-        $company->name = $request->companyname;
-        $company->contact_person = $request->contactperson;
-        $company->address = $request->companyaddress;
-        $company->phone = $request->companyphone;
-        $company->fax = $request->companyfax;
-        $company->email = $request->companyemail;
-        $company->zip = $request->companyzip;
-        $company->city = $request->companycity;
-        $company->state = $request->companystate;
-        $company->description = $request->companydescription;
-
-        $company->save();
-
-        return response()->json($company);
+        return response()->json($client);
 
     }  // end function update()
 

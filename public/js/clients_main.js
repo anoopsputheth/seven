@@ -57,6 +57,41 @@ $(document).ready(function(){
       }
 
     });
+
+
+
+    $('#input_select_client_client_type_update_client').change(function() { 
+      
+      if($('option:selected', this).text() == 'Personal')
+      {
+   
+          $('#input_text_client_businessname_update_client').val('').attr('readonly', true);
+
+          $('#input_text_client_first_name_update_client').attr('readonly', false);
+          $('#input_text_client_last_name_update_client').attr('readonly', false);
+         
+      }
+      else if($('option:selected', this).text() == 'Business')
+      {
+          
+          $('#input_text_client_businessname_update_client').attr('readonly', false);
+
+          $('#input_text_client_first_name_update_client').val('').attr('readonly', true);
+          $('#input_text_client_last_name_update_client').val('').attr('readonly', true);
+
+      }
+      else
+      {
+          
+          $('#input_text_client_businessname_update_client').val('').attr('readonly', false);
+          $('#input_text_client_first_name_update_client').val('').attr('readonly', false);
+          $('#input_text_client_last_name_update_client').val('').attr('readonly', false);
+
+      }
+
+    });
+
+    
     
   
   
@@ -64,6 +99,13 @@ $(document).ready(function(){
     $(document).on('click', '#btn_close_modal_create_client', function(){
   
       $('#modal_create_client').modal('hide');
+  
+    });
+
+
+    $(document).on('click', '#btn_close_modal_update_client', function(){
+  
+      $('#modal_update_client').modal('hide');
   
     });
   
@@ -153,7 +195,30 @@ $(document).ready(function(){
               $('#input_select_client_weekly_backup_update_client').prop('checked', is_weekly_backup_enabled);
 
               $('#input_text_client_description_update_client').val(data.description);
-              
+
+              $('#input_hidden_client_id_update_client').val(client_id_update_client);
+
+
+
+                if($('#input_select_client_client_type_update_client').val() == '4')
+                {  
+            
+                  $('#input_text_client_businessname_update_client').attr('readonly', true);
+
+                  $('#input_text_client_first_name_update_client').attr('readonly', false);
+                  $('#input_text_client_last_name_update_client').attr('readonly', false);
+
+                }
+                else
+                {
+
+                  $('#input_text_client_businessname_update_client').attr('readonly', false);
+
+                  $('#input_text_client_first_name_update_client').attr('readonly', true);
+                  $('#input_text_client_last_name_update_client').attr('readonly', true);
+
+                }
+                  
             },
   
             error   : function() 
@@ -171,18 +236,18 @@ $(document).ready(function(){
   
   
   
-    $('#modal_edit_company').on('hidden.bs.modal', function () {  
+    $('#modal_update_client').on('hidden.bs.modal', function () {  
   
-      $('[id^=company_update_error_div_]').html('');
-      $('#form_company_edit').trigger("reset");
+      $('[id^=client_update_error_div_]').html('');
+      $('#form_client_update').trigger("reset");
   
     }); // end on('hidden.bs.modal'
   
   
   
-    $(document).on('click', '#btn_close_modal_edit_company', function(){
+    $(document).on('click', '#btn_close_modal_update_client', function(){
   
-      $('#modal_edit_company').modal('hide');
+      $('#modal_update_client').modal('hide');
   
     });
   
@@ -399,7 +464,7 @@ $(document).ready(function(){
         });  // end $.ajax({
   
   
-  }  // end function insertCompany()
+  }  // end function insertClient()
   
   
   
@@ -457,6 +522,10 @@ $(document).ready(function(){
             'fax' :     $('[name=client_fax_update_client]').val(),
   
             'clientreferral' :  $('[name=client_referral_update_client]').val(),
+
+            'chargingmethod' :  $('[name=client_charging_method_update_client]').val(),
+
+            'chargingrate' :  $('[name=client_charging_rate_update_client]').val(),
   
             'businesscategory' :  $('[name=client_business_category_update_client]').val(),
   
@@ -483,7 +552,7 @@ $(document).ready(function(){
               //console.log(data.errors);
   
   
-              $('[id^=company_update_error_div_]').html('');
+              $('[id^=client_update_error_div_]').html('');
   
               if(data.errors)
               {
@@ -492,25 +561,25 @@ $(document).ready(function(){
   
                   if(data.errors[key])
                   {
-                    $('#company_update_error_div_'+key).html(value[0]).addClass('text-danger');
+                    $('#client_update_error_div_'+key).html(value[0]).addClass('text-danger');
                   }  
                   
                 });
       
               }
   
-              else  // saved company so reload paginated records
+              else  // saved client so reload paginated records
               {
                 
                   $.ajax({
   
-                    url : './companies/ajaxpagination?page=1',
+                    url : './clients/ajaxpagination?page=1',
               
                   }).done(function(data){
               
                     $('#table_paginted_clients tbody').html(data);
   
-                    $('#modal_edit_company').modal('hide');
+                    $('#modal_update_client').modal('hide');
   
                   });
   

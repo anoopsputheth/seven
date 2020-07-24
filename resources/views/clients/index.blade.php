@@ -556,7 +556,7 @@
 
                              {{  Form::label('network_structure') }}
 
-                             {!! Form::text('company_description_create_company', '', array('id' => 'input_text_company_description_create_company', 'class' => 'form-control', 'rows' => 4, 'cols' => 54)) !!}
+                             {!! Form::text('client_network_structure_create_client', '', array('id' => 'input_text_client_network_structure_create_client', 'class' => 'form-control', 'rows' => 4, 'cols' => 54)) !!}
 
                              <br />
 
@@ -586,8 +586,7 @@
 
                    </table>
 
-                    
-
+ 
                 {{ Form::close() }}
                       
              </div>
@@ -1249,9 +1248,7 @@
 
                    </table>
 
-
-
-
+                      {{ Form::hidden('client_id_edit_client', '', array('id' => 'input_hidden_client_id_update_client')) }}
 
                       {{ Form::close() }}
                       

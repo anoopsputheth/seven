@@ -40,7 +40,7 @@ $(document).ready(function(){
 
     var company_id_update_company = $(e.relatedTarget).data('update_company_id');   
 
-    //console.log(company_id_edit_company);
+    //console.log(company_id_update_company);
 
     $.ajax({            
 
