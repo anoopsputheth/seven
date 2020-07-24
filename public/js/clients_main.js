@@ -18,10 +18,10 @@ $(document).ready(function(){
   
   
   
-    $('#modal_create_company').on('hidden.bs.modal', function () {  
+    $('#modal_create_client').on('hidden.bs.modal', function () {  
   
-      $('[id^=company_create_error_div_]').html('');
-      $('#form_company_create').trigger("reset");
+      $('[id^=client_create_error_div_]').html('');
+      $('#form_client_create').trigger("reset");
   
     }); // end on('hidden.bs.modal'
 
@@ -61,28 +61,28 @@ $(document).ready(function(){
   
   
   
-    $(document).on('click', '#btn_close_modal_create_company', function(){
+    $(document).on('click', '#btn_close_modal_create_client', function(){
   
-      $('#modal_create_company').modal('hide');
+      $('#modal_create_client').modal('hide');
   
     });
   
   
     
-    $('#modal_edit_company').on('show.bs.modal', function (e) 
+    $('#modal_update_client').on('show.bs.modal', function (e) 
     {        
   
-      var company_id_update_company = $(e.relatedTarget).data('update_company_id');   
+      var client_id_update_client = $(e.relatedTarget).data('update_client_id');   
   
-      //console.log(company_id_edit_company);
+      //console.log(client_id_update_client);
   
       $.ajax({            
   
             type : 'GET',         
   
-            url :  './companies/fetch/{id}',
+            url :  './clients/fetch/{id}',
   
-            data    : 'id='+ company_id_update_company, // pass company id        
+            data    : 'id='+ client_id_update_client, // pass client id        
   
             success : function(data) 
   
@@ -90,35 +90,77 @@ $(document).ready(function(){
                
               //console.log(data);
   
-              $('#input_text_company_name_edit_company').val(data.name);
+              $('#input_text_client_first_name_update_client').val(data.firstname);
   
-              $('#input_text_contact_person_edit_company').val(data.contact_person);
+              $('#input_text_client_last_name_update_client').val(data.lastname);
   
-              $('#input_text_company_address_edit_company').val(data.address);
+              $('#input_text_client_businessname_update_client').val(data.businessname);
   
-              $('#input_text_company_phone_edit_company').val(data.phone);
-  
-              $('#input_text_company_fax_edit_company').val(data.fax);
-  
-              $('#input_text_company_email_edit_company').val(data.email);
-  
-              $('#input_text_company_zip_edit_company').val(data.zip);
-  
-              $('#input_text_company_city_edit_company').val(data.city);
-  
-              $('#input_text_company_state_edit_company').val(data.state);
-  
-              $('#input_text_company_description_edit_company').val(data.description);
-  
-              $('#input_hidden_company_id_edit_company').val(company_id_update_company);
-  
+              $('#input_select_client_client_type_update_client').val(data.client_type_id);
+
+              $('#input_text_client_company_update_client').val(data.company_id);
+
+              $('#input_text_client_address_update_client').val(data.address);
+
+              $('#input_text_client_zip_update_client').val(data.zip);
+
+              $('#input_text_client_city_update_client').val(data.city);
+
+              $('#input_text_client_state_update_client').val(data.state);
+
+              $('#input_text_client_contact_person_1_update_client').val(data.contact_person_1);
+
+              $('#input_text_client_contact_person_2_update_client').val(data.contact_person_2);
+
+              $('#input_text_client_contact_person_3_update_client').val(data.contact_person_3);
+
+              $('#input_text_client_phone_1_update_client').val(data.phone_1);
+
+              $('#input_text_client_phone_2_update_client').val(data.phone_2);
+
+              $('#input_text_client_cellno_update_client').val(data.cell_no);
+
+              $('#input_text_client_email1_update_client').val(data.email_1);
+
+              $('#input_text_client_email2_update_client').val(data.email_2);
+
+              $('#input_text_client_email3_update_client').val(data.email_3);
+
+              $('#input_text_client_fax_update_client').val(data.fax);
+
+              $('#input_text_client_referral_update_client').val(data.client_referral);
+              
+              $('#input_select_client_business_category_update_client').val(data.business_category_id);
+
+              $('#input_select_client_office_working_day_start_update_client').val(data.office_working_day_start);
+
+              $('#input_select_client_office_working_day_end_update_client').val(data.office_working_day_end);
+
+              $('#input_select_client_office_working_hour_start_update_client').val(data.office_working_hour_start);
+
+              $('#input_select_client_office_working_hour_end_update_client').val(data.office_working_hour_end);
+
+              $('#input_select_client_charging_method_update_client').val(data.charging_method_id);
+
+              $('#input_text_client_charging_rate_update_client').val(data.charging_rate);
+
+              var is_daily_backup_enabled = (data.daily_backup == 'yes') ? true : false;
+
+              $('#input_select_client_daily_backup_update_client').prop('checked', is_daily_backup_enabled);
+
+              var is_weekly_backup_enabled = (data.weekly_backup == 'yes') ? true : false;
+              
+              $('#input_select_client_weekly_backup_update_client').prop('checked', is_weekly_backup_enabled);
+
+              $('#input_text_client_description_update_client').val(data.description);
+              
             },
   
             error   : function() 
   
             { 
               
-              console.log('some error occured while fetching company'); 
+              console.log('some error occured while fetching client'); 
   
             }
   

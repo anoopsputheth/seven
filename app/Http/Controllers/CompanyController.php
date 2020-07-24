@@ -186,7 +186,7 @@ class CompanyController extends Controller
 
         return response()->json($company);
 
-    }  // end function edit()
+    }  // end function update()
 
 
 }

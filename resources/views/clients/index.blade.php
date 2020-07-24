@@ -500,7 +500,7 @@
                           
                             {{  Form::label('charging_method') }}
 
-                            {{  Form::select('client_charging_method_create_client', App\ChargingMethod::pluck('name','id'), '3', ['id' => 'input_select_client_charging_method_create_client', 'class' => 'form-control']) }}
+                            {{  Form::select('client_charging_method_create_client', App\ChargingMethod::pluck('name','id'), '', ['id' => 'input_select_client_charging_method_create_client', 'placeholder' => 'Select Charging Method', 'class' => 'form-control']) }}
 
                             <br />
 
@@ -597,7 +597,7 @@
                       
 
                     
-                      {{  Form::button('Close', ['id' => 'btn_close_modal_create_company', 'class' => 'btn btn-danger btn-sm']) }}
+                      {{  Form::button('Close', ['id' => 'btn_close_modal_create_client', 'class' => 'btn btn-danger btn-sm']) }}
 
                       {{  Form::button('Create', ['id' => 'btn_create_client', 'class' => 'btn btn-success btn-sm'])  }}
 
@@ -749,9 +749,509 @@
                       {{ Form::open(array('id' => 'form_client_update')) }}
 
                       
-
-                       
                       {{ Form::hidden('client_id_edit_client', '', array('id' => 'input_hidden_client_id_edit_client')) }}
+
+
+                      <table width="100%">
+
+                        <tr>
+                        
+                            <td>
+                            
+                             {{  Form::label('first_name') }} 
+
+                             {{  Form::text('client_first_name_update_client', '' , array('id' => 'input_text_client_first_name_update_client', 'class' => 'form-control')) }}
+                            
+                             <div id="client_update_error_div_firstname"></div>
+
+                             <br />
+
+                            </td>  
+
+
+                            <td> 
+                            
+                             {{  Form::label('last_name') }}
+
+                             {{  Form::text('client_last_name_update_client', '' , array('id' => 'input_text_client_last_name_update_client', 'class' => 'form-control')) }}
+                        
+                             <div id="client_update_error_div_lastname"></div>
+
+                             <br />
+
+                            </td>  
+
+
+                            <td colspan="2">  
+                            
+                             {{  Form::label('business_name') }}
+ 
+                             {{  Form::text('client_businessname_update_client', '' , array('id' => 'input_text_client_businessname_update_client', 'class' => 'form-control')) }}
+                        
+                             <div id="client_update_error_div_businessname"></div>
+
+                             <br /> 
+
+                            </td>
+
+                        </tr>
+
+                   
+                         
+                        <tr>
+
+
+                            <td>
+                                
+                             {{  Form::label('client_type') }}
+ 
+                             {{  Form::select('client_client_type_update_client', App\ClientType::whereIn('id', array(3, 4))->pluck('name','id'), null, ['id' => 'input_select_client_client_type_update_client', 'placeholder' => 'Select Client Type', 'class' => 'form-control']) }}
+
+                             <div id="client_update_error_div_clienttype"></div>
+
+                             <br /> 
+                                
+                            </td>  
+
+
+                            <td colspan="3"> 
+                                
+                             {{  Form::label('company') }}
+
+                             {{  Form::select('client_company_update_client', App\Company::pluck('name','id'), null, ['id' => 'input_text_client_company_update_client', 'placeholder' => 'Select Company', 'class' => 'form-control']) }}
+
+                             <div id="client_update_error_div_company"></div>
+
+                             <br /> 
+                                
+                            </td>  
+        
+
+                        </tr>
+
+
+                        <tr>
+
+
+                            <td colspan="4">
+
+                             {{  Form::label('address') }}
+
+                             {{  Form::text('client_address_update_client', '' , array('id' => 'input_text_client_address_update_client', 'class' => 'form-control')) }}
+
+                             <br />
+                            
+                            </td>
+
+                       </tr>
+
+
+
+                       <tr>
+
+
+                            <td>
+
+
+                             {{  Form::label('zip') }}
+
+                             {{  Form::text('client_zip_update_client', '' , array('id' => 'input_text_client_zip_update_client', 'class' => 'form-control')) }}
+
+                             <br />
+
+                            </td>
+
+
+
+                            <td>
+
+
+                             {{  Form::label('city') }}
+
+                             {{  Form::text('client_city_update_client', '' , array('id' => 'input_text_client_city_update_client', 'class' => 'form-control')) }}
+
+                             <br />
+
+                            </td>
+
+
+
+                            <td colspan="2">
+
+
+                             {{  Form::label('state') }}
+
+                             {{  Form::text('client_state_update_client', '' , array('id' => 'input_text_client_state_update_client', 'class' => 'form-control')) }}
+
+                             <br />
+
+                            </td>
+
+
+                       </tr>
+
+
+
+                        <tr>
+
+
+                            <td>
+
+
+                             {{  Form::label('contact_person_1') }}
+
+                             {{  Form::text('client_contact_person_1_update_client', '' , array('id' => 'input_text_client_contact_person_1_update_client', 'class' => 'form-control')) }}
+
+
+                             <br />
+
+
+                            </td>
+
+
+                            <td>
+
+
+                            
+                            {{  Form::label('contact_person_2') }}
+
+                            {{  Form::text('client_contact_person_2_update_client', '' , array('id' => 'input_text_client_contact_person_2_update_client', 'class' => 'form-control')) }}
+
+
+                            <br />
+
+
+                            </td>
+
+
+
+                            <td colspan="2">
+
+
+                            
+                            {{  Form::label('contact_person_3') }}
+
+                            {{  Form::text('client_contact_person_3_update_client', '' , array('id' => 'input_text_client_contact_person_3_update_client', 'class' => 'form-control')) }}
+
+
+                            <br />
+
+
+                            </td>
+
+
+                        </tr>
+
+
+
+                        <tr>
+
+
+                            <td>
+
+
+                             {{  Form::label('phone_1') }}
+
+                             {{  Form::text('client_phone_1_update_client', '' , array('id' => 'input_text_client_phone_1_update_client', 'class' => 'form-control')) }}
+
+
+                             <br />
+
+
+                            </td>
+
+
+                            <td>
+
+
+                             {{  Form::label('phone_2') }}
+
+                             {{  Form::text('client_phone_2_update_client', '' , array('id' => 'input_text_client_phone_2_update_client', 'class' => 'form-control')) }}
+
+                             <br />
+
+
+                            </td>
+
+
+
+                            <td colspan="2">
+
+
+                             {{  Form::label('cell_no') }}
+
+                             {{  Form::text('client_cellno_update_client', '' , array('id' => 'input_text_client_cellno_update_client', 'class' => 'form-control')) }}
+
+
+                             <br />
+
+
+                            </td>
+
+
+                        </tr>
+
+
+
+
+                        <tr>
+
+
+                            <td>
+
+
+                             {{  Form::label('email_1') }}
+
+                             {{  Form::text('client_email1_update_client', '' , array('id' => 'input_text_client_email1_update_client', 'class' => 'form-control')) }}
+
+                              
+                             <div id="client_create_error_div_email1"></div>
+
+                             <br />
+
+
+                            </td>
+
+
+                            <td>
+
+
+                             {{  Form::label('email_2') }}
+
+                             {{  Form::text('client_email2_update_client', '' , array('id' => 'input_text_client_email2_update_client', 'class' => 'form-control')) }}
+
+ 
+                             <div id="client_create_error_div_email2"></div>
+
+                             <br />
+
+
+                            </td>
+
+
+
+                            <td colspan="2">
+
+
+                             {{  Form::label('email_3') }}
+
+                             {{  Form::text('client_email3_update_client', '' , array('id' => 'input_text_client_email3_update_client', 'class' => 'form-control')) }}
+
+                             <div id="client_create_error_div_email3"></div>
+ 
+                             <br />
+
+
+                            </td>
+
+
+                        </tr>
+
+
+
+                        <tr>
+
+
+                            <td>
+
+
+                             {{  Form::label('fax') }}
+
+                             {{  Form::text('client_fax_update_client', '' , array('id' => 'input_text_client_fax_update_client', 'class' => 'form-control')) }}
+
+
+                             <br />
+
+
+                            </td>
+
+
+                            <td>
+
+
+                             {{  Form::label('client_referral') }}
+
+                             {!! Form::text('client_referral_update_client', '', array('id' => 'input_text_client_referral_update_client', 'class' => 'form-control', 'rows' => 4, 'cols' => 54)) !!}
+
+
+                             <br />
+
+
+                            </td>
+
+
+
+                            <td colspan="2">
+
+
+                             {{  Form::label('business_category') }}
+
+                             {{  Form::select('client_business_category_update_client', App\BusinessCategory::pluck('name','id'), '3', ['id' => 'input_select_client_business_category_update_client', 'placeholder' => 'Select Business Category', 'class' => 'form-control']) }}
+
+                             <div id="client_update_error_div_businesscategory"></div>
+                           
+                             <br />
+
+
+                            </td>
+
+
+                        </tr>
+
+
+
+
+                        <tr>
+
+
+                            <td>
+
+                             {{  Form::label('office_working_day_start') }}
+
+                             {!! Form::select('client_office_working_day_start_update_client', array('monday' => 'Monday', 'tuesday' => 'Tuesday', 'wednesday' => 'Wednesday', 'thursday' => 'Thursday', 'friday' => 'Friday'), 'monday', ['id' => 'input_select_client_office_working_day_start_update_client', 'class' => 'form-control']) !!}
+                            
+                             <br />
+
+                            </td>
+
+
+
+                            <td>
+
+
+                            {{  Form::label('office_working_day_end') }}
+
+                            {!! Form::select('client_office_working_day_end_update_client', array('monday' => 'Monday', 'tuesday' => 'Tuesday', 'wednesday' => 'Wednesday', 'thursday' => 'Thursday', 'friday' => 'Friday'), 'friday', ['id' => 'input_select_client_office_working_day_end_update_client', 'class' => 'form-control']) !!}
+                            
+                            <br />
+
+                            </td>
+
+
+                            <td>
+
+
+                            {{  Form::label('work_hour_start') }}
+
+                            {!! Form::select('client_office_working_hour_start_update_client', array('08:00 am' => '08:00 AM', '08:30 am' => '08:30 AM'), '08:30 am', ['id' => 'input_select_client_office_working_hour_start_update_client', 'class' => 'form-control']) !!}
+                            
+                            <br />
+
+                            </td>
+
+
+                            <td>
+
+                            {{  Form::label('work_hour_end') }}
+
+                            {!! Form::select('client_office_working_hour_end_update_client', array('08:00 am' => '08:00 AM', '08:30 am' => '08:30 AM'), '08:30 am', ['id' => 'input_select_client_office_working_hour_end_update_client', 'class' => 'form-control']) !!}
+                
+                            <br />
+
+                            </td>
+
+
+                        </tr>
+
+
+
+                        <tr>
+
+
+                            <td>
+
+                          
+                            {{  Form::label('charging_method') }}
+
+                            {{  Form::select('client_charging_method_update_client', App\ChargingMethod::pluck('name','id'), '3', ['id' => 'input_select_client_charging_method_update_client', 'placeholder' => 'Select Charging Method', 'class' => 'form-control']) }}
+
+                            <br />
+
+                            </td>
+
+
+
+                            <td>
+
+
+                            {{  Form::label('charging_rate') }}
+
+                            {!! Form::text('client_charging_rate_update_client', '', array('id' => 'input_text_client_charging_rate_update_client', 'class' => 'form-control', 'rows' => 4, 'cols' => 54)) !!}
+
+                            <br />
+
+                            </td>
+
+
+                            <td>
+
+
+                            {{  Form::label('daily_backup') }}
+
+                            {!! Form::checkbox('client_daily_backup_update_client', null, null, array('id' => 'input_select_client_daily_backup_update_client')) !!}
+
+                            <br />
+
+                            </td>
+
+
+                            <td>
+
+                            {{  Form::label('weekly_backup') }}
+
+                            {!! Form::checkbox('client_weekly_backup_update_client', null, null, array('id' => 'input_select_client_weekly_backup_update_client')) !!}
+
+
+                            <br />
+
+                            </td>
+
+
+                        </tr>
+
+
+
+
+                        <tr>
+
+
+                            <td colspan="4">
+
+                             {{  Form::label('network_structure') }}
+
+                             {!! Form::text('company_description_update_company', '', array('id' => 'input_text_company_description_update_company', 'class' => 'form-control', 'rows' => 4, 'cols' => 54)) !!}
+
+                             <br />
+
+                            </td>
+
+
+                        </tr>
+
+
+
+                        <tr>
+
+                            <td colspan="4">
+
+            
+                             {{  Form::label('description') }}
+
+                             {!! Form::textarea('client_description_update_client', '', array('id' => 'input_text_client_description_update_client', 'class' => 'form-control', 'rows' => 4, 'cols' => 54)) !!}
+
+                             <br />
+
+                            </td>
+
+                        </tr>
+            
+            
+
+                   </table>
+
+
+
+
 
                       {{ Form::close() }}
                       
@@ -762,7 +1262,7 @@
                       
 
                     
-                      {{  Form::button('Close', ['id' => 'btn_close_modal_edit_client', 'class' => 'btn btn-danger btn-sm']) }}
+                      {{  Form::button('Close', ['id' => 'btn_close_modal_update_client', 'class' => 'btn btn-danger btn-sm']) }}
 
                       {{  Form::button('Update', ['id' => 'btn_update_client', 'class' => 'btn btn-success btn-sm'])  }}
 

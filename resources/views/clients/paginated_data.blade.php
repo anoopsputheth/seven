@@ -22,7 +22,7 @@
 
      <a href="#modal_view_client" data-toggle="modal" data-view_client_id="<?= $client->id; ?>"><button class="btn btn-info btn-sm">View</button></a> 
 
-     <a href="#modal_edit_client" data-toggle="modal" data-update_client_id="<?= $client->id; ?>"><button class="btn btn-warning btn-sm">Edit</button></a>
+     <a href="#modal_update_client" data-toggle="modal" data-update_client_id="<?= $client->id; ?>"><button class="btn btn-warning btn-sm">Edit</button></a>
      
      <a href="#modal_delete_client" data-toggle="modal" data-delete_client_id="<?= $client->id; ?>"><button class="btn btn-danger btn-sm">Delete</button></a>
      

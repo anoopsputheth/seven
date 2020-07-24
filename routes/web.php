@@ -61,6 +61,8 @@ Route::get('/clients/ajaxpagination', 'ClientController@ajaxpagination')->name('
 
 Route::post('/clients/create', 'ClientController@insert')->name('client.create');
 
+Route::get('/clients/fetch/{id}', 'ClientController@fetch')->name('client.fetch');
+
 
 
 

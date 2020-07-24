@@ -173,4 +173,56 @@ class ClientController extends Controller
 
     }
 
+
+    public function fetch(Request $request)
+    {
+        $client =  Client::find($request->id);
+        return response()->json($client);
+    }
+
+
+    public function update(Request $request)
+    {
+
+        $validator = Validator::make($request->all(), [
+
+            'companyname' => 'required|unique:companies,name,'.$request->id.'',
+            'contactperson' => 'required',
+            'companyphone' => 'required',
+            'companyemail' => 'required|email'
+
+        ]);
+
+
+        if ($validator->fails())
+        {
+            return Response::json(array(
+                'success' => false,
+                'errors' => $validator->getMessageBag()->toArray()
+
+            )); // 400 being the HTTP code for an invalid request.
+        }
+
+
+        $company = Company::find($request->id);
+
+        //return response()->json($company);
+
+        $company->name = $request->companyname;
+        $company->contact_person = $request->contactperson;
+        $company->address = $request->companyaddress;
+        $company->phone = $request->companyphone;
+        $company->fax = $request->companyfax;
+        $company->email = $request->companyemail;
+        $company->zip = $request->companyzip;
+        $company->city = $request->companycity;
+        $company->state = $request->companystate;
+        $company->description = $request->companydescription;
+
+        $company->save();
+
+        return response()->json($company);
+
+    }  // end function update()
+
 }
