@@ -254,20 +254,20 @@ $(document).ready(function(){
   
   
   
-    $('#modal_view_company').on('show.bs.modal', function (e) 
+    $('#modal_view_client').on('show.bs.modal', function (e) 
     {        
   
-      var view_company_id = $(e.relatedTarget).data('view_company_id');   
+      var view_client_id = $(e.relatedTarget).data('view_client_id');   
   
-      //console.log(view_company_id);
+      //console.log(view_client_id);
   
       $.ajax({            
   
             type : 'GET',         
   
-            url :  './companies/fetch/{id}',
+            url :  './clients/fetch/{id}',
   
-            data    : 'id='+ view_company_id, //Pass $user_id           
+            data    : 'id='+ view_client_id, //Pass $user_id           
   
             success : function(data) 
   
@@ -275,28 +275,70 @@ $(document).ready(function(){
                
               //console.log(result);
   
-              $('#input_text_company_name_view_company').val(data.name);
-  
-              $('#input_text_contact_person_view_company').val(data.contact_person);
-  
-              $('#input_text_company_address_view_company').val(data.address);
-  
-              $('#input_text_company_phone_view_company').val(data.phone);
-  
-              $('#input_text_company_fax_view_company').val(data.fax);
-  
-              $('#input_text_company_email_view_company').val(data.email);
-  
-              $('#input_text_company_zip_view_company').val(data.zip);
-  
-              $('#input_text_company_city_view_company').val(data.city);
-  
-              $('#input_text_company_state_view_company').val(data.state);
-  
-              $('#input_text_company_description_view_company').val(data.description);
-  
-             
-  
+              $('#input_text_client_first_name_view_client').val(data.firstname);
+
+              $('#input_text_client_last_name_view_client').val(data.lastname);
+
+              $('#input_text_client_businessname_view_client').val(data.businessname);
+
+              $('#input_select_client_type_view_client').val(data.client_type_id);
+
+              $('#input_text_client_company_view_client').val(data.company_id);
+
+              $('#input_text_client_address_view_client').val(data.address);
+
+              $('#input_text_client_zip_view_client').val(data.zip);
+
+              $('#input_text_client_city_view_client').val(data.city);
+
+              $('#input_text_client_state_view_client').val(data.state);
+
+              $('#input_text_client_contact_person_1_view_client').val(data.contact_person_1);
+
+              $('#input_text_client_contact_person_2_view_client').val(data.contact_person_2);
+
+              $('#input_text_client_contact_person_3_view_client').val(data.contact_person_3);
+
+              $('#input_text_client_phone_1_view_client').val(data.phone_1);
+
+              $('#input_text_client_phone_2_view_client').val(data.phone_2);
+
+              $('#input_text_client_phone_3_view_client').val(data.cell_no);
+
+              $('#input_text_client_email1_view_client').val(data.email_1);
+
+              $('#input_text_client_email2_view_client').val(data.email_2);
+
+              $('#input_text_client_email3_view_client').val(data.email_3);
+
+              $('#input_text_client_fax_view_client').val(data.fax);
+
+              $('#input_text_client_referral_view_client').val(data.client_referral);
+
+              $('#input_select_client_business_category_view_client').val(data.business_category_id);
+
+              $('#input_select_client_office_working_day_start_view_client').val(data.office_working_day_start);
+
+              $('#input_select_client_office_working_day_end_view_client').val(data.office_working_day_end);
+
+              $('#input_select_client_office_working_hour_start_view_client').val(data.office_working_hour_start);
+
+              $('#input_select_client_office_working_hour_end_view_client').val(data.office_working_hour_end);
+
+              $('#input_select_client_charging_method_view_client').val(data.charging_method_id);
+
+              $('#input_text_client_charging_rate_view_client').val(data.charging_rate);
+
+              var is_daily_backup_enabled = (data.daily_backup == 'yes') ? true : false;
+
+              $('#input_select_client_daily_backup_view_client').prop('checked', is_daily_backup_enabled);
+
+              var is_weekly_backup_enabled = (data.weekly_backup == 'yes') ? true : false;
+              
+              $('#input_select_client_weekly_backup_view_client').prop('checked', is_weekly_backup_enabled);
+
+              $('#input_text_client_description_view_client').val(data.description);
+                  
             },
   
             error   : function() 
@@ -311,12 +353,16 @@ $(document).ready(function(){
   
   
     });  // end on('show.bs.modal'
+
+
+
+
   
   
   
-    $(document).on('click', '#btn_close_modal_view_company', function(){
+    $(document).on('click', '#btn_close_modal_view_client', function(){
   
-      $('#modal_view_company').modal('hide');
+      $('#modal_view_client').modal('hide');
   
     });
   
@@ -424,8 +470,9 @@ $(document).ready(function(){
           },
   
   
-          success : function(data){  console.log(data);
-  
+          success : function(data){  
+            
+              // console.log(data);
   
               $('[id^=client_create_error_div_]').html('');
   
@@ -453,6 +500,9 @@ $(document).ready(function(){
                   }).done(function(data){
               
                       $('#table_paginted_clients tbody').html(data);
+
+                      $('#form_client_create').trigger("reset");   
+                      $('#modal_create_client').modal('hide');
                   });
   
               }
