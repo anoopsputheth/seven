@@ -20,7 +20,7 @@ class ClientController extends Controller
     public function index()
     {
 
-        $clients =  Client::orderBy('lastname', 'asc')->paginate(2);
+        $clients =  Client::orderBy('lastname', 'asc')->paginate(15);
 
         return view('clients.index', array('clients' =>  $clients, 'search_client_name' => '', 'search_client_zip' => '', 'search_client_city' => '', 'search_client_state' => '', 'search_client_phone' => '', 'search_client_email' => ''));
 
@@ -51,7 +51,7 @@ class ClientController extends Controller
         }
         
 
-        $clients =  Client::where($searchmap)->orderBy('firstname', 'asc')->paginate(2);
+        $clients =  Client::where($searchmap)->orderBy('firstname', 'asc')->paginate(15);
 
         return view('clients.paginated_data', array('clients' =>  $clients, 'search_client_name' => $request->input('search_client_name'), 'search_client_phone' => $request->input('search_client_phone'), 'search_client_email' => $request->input('search_client_email')));
 
@@ -86,7 +86,7 @@ class ClientController extends Controller
             }
 
 
-            $clients =  Client::where($searchmap)->orderBy('firstname', 'asc')->paginate(2);
+            $clients =  Client::where($searchmap)->orderBy('firstname', 'asc')->paginate(15);
 
             return view('clients.paginated_data', array('clients' =>  $clients, 'search_client_name' => $request->input('search_client_name'), 'search_client_phone' => $request->input('search_client_phone'), 'search_client_email' => $request->input('search_client_email')));
 
