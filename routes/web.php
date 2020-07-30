@@ -38,6 +38,19 @@ Route::get('/generate-pdf','PDFController@generatePDF');
 
 
 
+Route::get('/roles', 'RoleController@index')->name('role.index')->middleware('auth');
+
+Route::get('/roles/indexsearch', 'RoleController@indexsearch')->name('role.indexsearch')->middleware('auth');
+
+Route::get('/roles/ajaxpagination', 'RoleController@ajaxpagination')->name('role.ajaxpagination')->middleware('auth');
+
+Route::post('/roles/create', 'RoleController@insert')->name('role.create')->middleware('auth');
+
+Route::get('/roles/fetch/{id}', 'RoleController@fetch')->name('role.fetch')->middleware('auth');
+
+Route::post('/roles/update', 'RoleController@update')->name('role.update')->middleware('auth');
+
+
 Route::get('/companies', 'CompanyController@index')->name('company.index')->middleware('auth');
 
 Route::get('/companies/indexsearch', 'CompanyController@indexsearch')->name('company.indexsearch')->middleware('auth');
