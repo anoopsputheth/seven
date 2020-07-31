@@ -38,6 +38,12 @@ Route::get('/generate-pdf','PDFController@generatePDF');
 
 
 
+Route::get('/permission-denied', function() {
+    return View::make('permission-denied'); 
+   });
+
+
+
 Route::get('/roles', 'RoleController@index')->name('role.index')->middleware('auth');
 
 Route::get('/roles/indexsearch', 'RoleController@indexsearch')->name('role.indexsearch')->middleware('auth');
@@ -51,7 +57,7 @@ Route::get('/roles/fetch/{id}', 'RoleController@fetch')->name('role.fetch')->mid
 Route::post('/roles/update', 'RoleController@update')->name('role.update')->middleware('auth');
 
 
-Route::get('/companies', 'CompanyController@index')->name('company.index')->middleware('auth');
+Route::get('/companies', 'CompanyController@index')->name('company.index')->middleware('auth')->middleware('checkaccess');
 
 Route::get('/companies/indexsearch', 'CompanyController@indexsearch')->name('company.indexsearch')->middleware('auth');
 

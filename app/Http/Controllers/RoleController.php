@@ -18,7 +18,7 @@ class RoleController extends Controller
     
     
     public function index()
-    {
+    {  
 
         $roles =  Role::orderBy('name', 'asc')->paginate(15);
 
