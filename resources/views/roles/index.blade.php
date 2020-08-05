@@ -94,9 +94,44 @@
                       {{  Form::text('role_description_create_role', '' , array('id' => 'input_text_role_description_create_role', 'class' => 'form-control')) }}
 
 
+                      <br />  <br /> 
+
+
+                      {{  Form::label('company') }}
+
                       <br />
 
-      
+
+                      {!! Form::checkbox('role_view_company_create_role', 'company.index', null, array('id' => 'input_chkbox_role_view_company_create_role')) !!}
+
+                      {{  Form::label('view_company') }}
+
+
+                      &nbsp; &nbsp;
+
+
+                      {!! Form::checkbox('role_create_company_create_role', 'company.create', null, array('id' => 'input_chkbox_role_create_company_create_role')) !!}
+
+                      {{  Form::label('create_company') }}
+
+
+                      &nbsp; &nbsp;
+
+
+                      {!! Form::checkbox('role_update_company_create_role', 'company.update', null, array('id' => 'input_chkbox_role_update_company_create_role')) !!}
+
+                      {{  Form::label('update_company') }}
+
+
+                      &nbsp; &nbsp;
+
+
+                      {!! Form::checkbox('role_delete_company_create_role', 'company.delete', null, array('id' => 'input_chkbox_role_update_company_create_role')) !!}
+
+                      {{  Form::label('delete_company') }}
+
+
+
                       {{ Form::close() }}
                       
                     </div>
