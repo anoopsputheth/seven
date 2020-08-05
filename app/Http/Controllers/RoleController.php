@@ -105,7 +105,15 @@ class RoleController extends Controller
         
         $role->save();
 
+        DB::table('role_action')->insert([
+            ['role_id' => 7, 'action' => 'company.test'],
+            ['role_id' => 7,'action' => 'company.test'],
+        ]);
+
         return response()->json($role);
+
+
+        
 
 
     }  // end function insert()

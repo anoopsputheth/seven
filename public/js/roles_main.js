@@ -190,7 +190,11 @@ $(document).ready(function(){
           'rolename' : $('input[name=role_name_create_role]').val(),
   
           'roledescription' : $('input[name=role_description_create_role]').val(),
-  
+      
+
+          'actions' : JSON.stringify(['com.ind', 'com.cre', 'com.upd'])
+
+          
   
           },
   
