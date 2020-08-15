@@ -10,6 +10,8 @@ use Validator;
 
 use Response;
 
+use DB;
+
 
 
 
@@ -105,15 +107,21 @@ class RoleController extends Controller
         
         $role->save();
 
-        DB::table('role_action')->insert([
-            ['role_id' => 7, 'action' => 'company.test'],
-            ['role_id' => 7,'action' => 'company.test'],
-        ]);
+$a=array("ss","ll");
+        foreach(JSON.parse($request->actions) as $action)
+        {
 
-        return response()->json($role);
+            DB::table('role_action')->insert([
 
+                ['role_id' => 44, 'action' => $action],
+               
+            ]);
+
+        }
 
         
+
+        return response()->json($role);
 
 
     }  // end function insert()

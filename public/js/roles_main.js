@@ -176,6 +176,18 @@ $(document).ready(function(){
   
   function insertRole()
   {  
+
+        let actions = [];
+
+        $("[id^=input_chkbox_role_][type=checkbox]").each(function () {
+
+          if($(this).prop('checked'))
+          {
+            actions.push(this.value);
+          }
+         
+        });
+
   
         $.ajax({
   
@@ -192,7 +204,7 @@ $(document).ready(function(){
           'roledescription' : $('input[name=role_description_create_role]').val(),
       
 
-          'actions' : JSON.stringify(['com.ind', 'com.cre', 'com.upd'])
+          'actions' : JSON.stringify(actions)
 
           
   
