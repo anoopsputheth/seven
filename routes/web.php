@@ -44,7 +44,7 @@ Route::get('/permission-denied', function() {
 
 
 
-Route::get('/roles', 'RoleController@index')->name('role.index')->middleware('auth');
+Route::get('/roles', 'RoleController@index')->name('role.index')->middleware('auth')->middleware('checkaccess');
 
 Route::get('/roles/indexsearch', 'RoleController@indexsearch')->name('role.indexsearch')->middleware('auth');
 
@@ -71,7 +71,7 @@ Route::post('/companies/update', 'CompanyController@update')->name('company.upda
 
 
 
-Route::get('/clients', 'ClientController@index')->name('client.index')->middleware('auth');
+Route::get('/clients', 'ClientController@index')->name('client.index')->middleware('auth')->middleware('checkaccess');
 
 Route::get('/clients/indexsearch', 'ClientController@indexsearch')->name('client.indexsearch')->middleware('auth');
 
@@ -81,7 +81,7 @@ Route::post('/clients/create', 'ClientController@insert')->name('client.create')
 
 Route::get('/clients/fetch/{id}', 'ClientController@fetch')->name('client.fetch')->middleware('auth');
 
-Route::post('/clients/update', 'ClientController@update')->name('client.update')->middleware('auth');
+Route::post('/clients/update', 'ClientController@update')->name('client.update')->middleware('auth')->middleware('checkaccess');
 
 
 

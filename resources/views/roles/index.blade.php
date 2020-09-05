@@ -93,8 +93,47 @@
 
                       {{  Form::text('role_description_create_role', '' , array('id' => 'input_text_role_description_create_role', 'class' => 'form-control')) }}
 
+                      
+                      <br />  <br /> 
+
+
+                      {{  Form::label('role') }}
+
+                      <br />
+
+
+                      {!! Form::checkbox('role_view_role_create_role', 'role.index', null, array('id' => 'input_chkbox_role_view_role_create_role')) !!}
+
+                      {{  Form::label('view_role') }}
+
+
+                      &nbsp; &nbsp;
+
+
+                      {!! Form::checkbox('role_create_role_create_role', 'role.create', null, array('id' => 'input_chkbox_role_create_role_create_role')) !!}
+
+                      {{  Form::label('create_role') }}
+
+
+                      &nbsp; &nbsp;
+
+
+                      {!! Form::checkbox('role_update_role_create_role', 'role.update', null, array('id' => 'input_chkbox_role_update_role_create_role')) !!}
+
+                      {{  Form::label('update_role') }}
+
+
+                      &nbsp; &nbsp;
+
+
+                      {!! Form::checkbox('role_delete_role_create_role', 'role.delete', null, array('id' => 'input_chkbox_role_update_role_create_role')) !!}
+
+                      {{  Form::label('delete_role') }}
+
+
 
                       <br />  <br /> 
+
 
 
                       {{  Form::label('company') }}
@@ -129,6 +168,44 @@
                       {!! Form::checkbox('role_delete_company_create_role', 'company.delete', null, array('id' => 'input_chkbox_role_update_company_create_role')) !!}
 
                       {{  Form::label('delete_company') }}
+
+
+
+                      <br />  <br /> 
+
+
+                      {{  Form::label('client') }}
+
+                      <br />
+
+
+                      {!! Form::checkbox('role_view_client_create_role', 'client.index', null, array('id' => 'input_chkbox_role_view_client_create_role')) !!}
+
+                      {{  Form::label('view_client') }}
+
+
+                      &nbsp; &nbsp;
+
+
+                      {!! Form::checkbox('role_create_client_create_role', 'client.create', null, array('id' => 'input_chkbox_role_create_client_create_role')) !!}
+
+                      {{  Form::label('create_client') }}
+
+
+                      &nbsp; &nbsp;
+
+
+                      {!! Form::checkbox('role_update_client_create_role', 'client.update', null, array('id' => 'input_chkbox_role_update_client_create_role')) !!}
+
+                      {{  Form::label('update_client') }}
+
+
+                      &nbsp; &nbsp;
+
+
+                      {!! Form::checkbox('role_delete_client_create_role', 'client.delete', null, array('id' => 'input_chkbox_role_update_client_create_role')) !!}
+
+                      {{  Form::label('delete_client') }}
 
 
 

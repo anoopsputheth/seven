@@ -66,7 +66,7 @@ class RoleController extends Controller
 
             $roles =  Role::where($searchmap)->orderBy('name', 'asc')->paginate(15);
 
-            return view('roles.paginated_data', array('roles' => $companies, 'search_role_name' => $request->input('search_role_name')));
+            return view('roles.paginated_data', array('roles' => $roles, 'search_role_name' => $request->input('search_role_name')));
 
         }
 
@@ -107,18 +107,24 @@ class RoleController extends Controller
         
         $role->save();
 
-$a=array("ss","ll");
-        foreach(JSON.parse($request->actions) as $action)
+        
+        if(isset($request->actions))
         {
-
-            DB::table('role_action')->insert([
-
-                ['role_id' => 44, 'action' => $action],
-               
-            ]);
+        
+            foreach($request->actions as $action)
+            {
+    
+                DB::table('role_action')->insert([
+    
+                    ['role_id' => $role->id, 'action' => $action],
+                   
+                ]);
+    
+            }    
 
         }
 
+        
         
 
         return response()->json($role);

@@ -204,14 +204,14 @@ $(document).ready(function(){
           'roledescription' : $('input[name=role_description_create_role]').val(),
       
 
-          'actions' : JSON.stringify(actions)
+          'actions' : actions
 
           
   
           },
   
   
-          success : function(data){
+          success : function(data){   console.log(data);
   
   
               $('[id^=role_create_error_div_]').html('');
@@ -232,7 +232,10 @@ $(document).ready(function(){
   
               else  // saved company so reload paginated records
               {
-                
+                 
+                $('#form_role_create').trigger("reset");
+                $('#modal_create_role').modal('hide');
+
                   $.ajax({
   
                     url : './roles/ajaxpagination?page=1',
