@@ -116,11 +116,19 @@ $(document).ready(function(){
   
             { 
                
-              //console.log(result);
+              //console.log(data);
   
               $('#input_text_role_name_view_role').val(data.name);
   
-              $('#input_text_role_description_view_role').val(data.description);
+              $('#input_text_role_description_view_role').val(data.description); console.log(data.actions);
+
+              console.log($('#input_chkbox_role_view_role_view_role').val());
+
+              $('input:checkbox').each(function(){
+
+                console.log(this.value)
+
+              });
   
             },
   

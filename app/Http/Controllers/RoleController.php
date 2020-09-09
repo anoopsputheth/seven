@@ -137,7 +137,13 @@ class RoleController extends Controller
     public function fetch(Request $request)
     {
         $role =  Role::find($request->id);
-        return response()->json($role);
+
+        //$actions = array('company.create', 'company.edit');
+
+        $actions = DB::table('role_action')->where('role_id','=', $request->id)->get()->pluck('action');
+
+        $t= array('name'=>$role->name, 'description' => $role->description, 'actions'=> $actions);
+        return response()->json($t);
     }
 
 

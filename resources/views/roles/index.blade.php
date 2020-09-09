@@ -265,7 +265,46 @@
                       {{  Form::text('role_description_view_role', '' , array('id' => 'input_text_role_description_view_role', 'class' => 'form-control', 'disabled')) }}
 
 
+
+                      <br />  <br /> 
+
+
+                      {{  Form::label('role') }}
+
                       <br />
+
+
+                      {!! Form::checkbox('role_view_role_view_role', 'role.index', null, array('id' => 'input_chkbox_role_view_role_view_role')) !!}
+
+                      {{  Form::label('view_role') }}
+
+
+&nbsp; &nbsp;
+
+
+{!! Form::checkbox('role_create_role_create_role', 'role.create', null, array('id' => 'input_chkbox_role_create_role_create_role')) !!}
+
+{{  Form::label('create_role') }}
+
+
+&nbsp; &nbsp;
+
+
+{!! Form::checkbox('role_update_role_create_role', 'role.update', null, array('id' => 'input_chkbox_role_update_role_create_role')) !!}
+
+{{  Form::label('update_role') }}
+
+
+&nbsp; &nbsp;
+
+
+{!! Form::checkbox('role_delete_role_create_role', 'role.delete', null, array('id' => 'input_chkbox_role_update_role_create_role')) !!}
+
+{{  Form::label('delete_role') }}
+
+
+
+<br />  <br /> 
                       
 
                       {{ Form::close() }}
